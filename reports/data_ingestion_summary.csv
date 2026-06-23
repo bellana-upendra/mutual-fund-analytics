@@ -1,0 +1,11 @@
+file_name,status,rows,columns,duplicate_rows,missing_values,empty_columns,anomaly_notes
+01_fund_master.csv,loaded,40,15,0,0,,No major anomaly found in basic checks
+02_nav_history.csv,loaded,46000,3,0,0,,No major anomaly found in basic checks
+03_aum_by_fund_house.csv,loaded,90,5,0,0,,No major anomaly found in basic checks
+04_monthly_sip_inflows.csv,loaded,48,6,0,12,,12 missing values
+05_category_inflows.csv,loaded,144,3,0,0,,No major anomaly found in basic checks
+06_industry_folio_count.csv,loaded,21,6,0,0,,No major anomaly found in basic checks
+07_scheme_performance.csv,loaded,40,19,0,0,,No major anomaly found in basic checks
+08_investor_transactions.csv,loaded,32778,13,0,0,,No major anomaly found in basic checks
+09_portfolio_holdings.csv,loaded,322,8,0,0,,No major anomaly found in basic checks
+10_benchmark_indices.csv,loaded,8050,3,0,0,,No major anomaly found in basic checks

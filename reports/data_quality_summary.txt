@@ -1,0 +1,16 @@
+Day 1 Data Quality Summary
+==========================
+fund_master file: 01_fund_master.csv
+nav_history file: 02_nav_history.csv
+fund_master scheme code column: amfi_code
+nav_history scheme code column: amfi_code
+Total unique fund_master codes: 40
+Total unique nav_history codes: 40
+Codes in fund_master missing from nav_history: 0
+Codes in nav_history not present in fund_master: 0
+
+Missing in nav_history:
+None
+
+Extra in nav_history:
+None

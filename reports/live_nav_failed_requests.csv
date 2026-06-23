@@ -1,0 +1,2 @@
+assigned_name,scheme_code,error,fetched_at
+Kotak Bluechip Direct,120841,"HTTPSConnectionPool(host='api.mfapi.in', port=443): Read timed out. (read timeout=30)",2026-06-22T21:41:09
