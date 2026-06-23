@@ -13,8 +13,8 @@ mutual-fund-analytics/
 ├── sql/
 ├── dashboard/
 ├── reports/
-├── data_ingestion.py
-├── live_nav_fetch.py
+├── data\_ingestion.py
+├── live\_nav\_fetch.py
 ├── requirements.txt
 └── README.md
 ```
@@ -23,15 +23,15 @@ mutual-fund-analytics/
 
 ```bash
 python -m venv venv
-venv\Scripts\activate
+venv\\Scripts\\activate
 pip install -r requirements.txt
 ```
 
 ### Run Day 1 Scripts
 
 ```bash
-python data_ingestion.py
-python live_nav_fetch.py
+python data\_ingestion.py
+python live\_nav\_fetch.py
 ```
 
 ### Git Commands
@@ -41,10 +41,11 @@ git init
 git add .
 git commit -m "Day 1: Data ingestion complete"
 git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/mutual-fund-analytics.git
+git remote add origin https://github.com/bellana-upendra/mutual-fund-analytics.git
 git push -u origin main
 ```
 
 ### Important Code Validation Note
 
-The assignment mentions `125497` as HDFC Top 100 Direct. Validate this before submission because some sources/API results may show `125497` as a different scheme. The script saves `reports/live_nav_metadata.csv` so you can compare assigned fund name versus API returned scheme name.
+The assignment mentions `125497` as HDFC Top 100 Direct. Validate this before submission because some sources/API results may show `125497` as a different scheme. The script saves `reports/live\_nav\_metadata.csv` so you can compare assigned fund name versus API returned scheme name.
+
