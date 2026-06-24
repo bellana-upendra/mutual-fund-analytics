@@ -209,3 +209,197 @@ GitHub: [bellana-upendra](https://github.com/bellana-upendra)
 ## ✅ Status
 
 **Day 1 Completed Successfully**
+
+
+---
+
+# 📅 Day 2: Data Cleaning + SQLite Database Design
+
+## ✅ Completed Tasks
+
+* Cleaned all 10 mutual fund datasets
+* Parsed date columns into proper datetime format
+* Removed duplicate records
+* Validated NAV values greater than 0
+* Forward-filled missing NAV values for holidays/weekends
+* Standardized transaction types such as SIP, Lumpsum, and Redemption
+* Validated transaction amount values greater than 0
+* Fixed transaction date formats
+* Checked and standardized KYC status values
+* Converted scheme performance return columns into numeric format
+* Checked expense ratio range between 0.1% and 2.5%
+* Created SQLite database: `bluestock_mf.db`
+* Loaded all cleaned datasets into SQLite tables
+* Verified row counts between cleaned CSV files and SQLite database tables
+* Created SQL schema file: `sql/schema.sql`
+* Created analytical SQL queries file: `sql/queries.sql`
+* Created data dictionary: `reports/data_dictionary.md`
+* Committed and pushed Day 2 work to GitHub
+
+---
+
+## 📁 Day 2 Updated Project Structure
+
+```text
+mutual-fund-analytics/
+├── data/
+│   ├── raw/
+│   └── processed/
+│       ├── 01_fund_master_clean.csv
+│       ├── 02_nav_history_clean.csv
+│       ├── 03_aum_by_fund_house_clean.csv
+│       ├── 04_monthly_sip_inflows_clean.csv
+│       ├── 05_category_inflows_clean.csv
+│       ├── 06_industry_folio_count_clean.csv
+│       ├── 07_scheme_performance_clean.csv
+│       ├── 08_investor_transactions_clean.csv
+│       ├── 09_portfolio_holdings_clean.csv
+│       └── 10_benchmark_indices_clean.csv
+│
+├── notebooks/
+├── sql/
+│   ├── schema.sql
+│   └── queries.sql
+│
+├── dashboard/
+├── reports/
+│   ├── data_dictionary.md
+│   ├── data_ingestion_summary.csv
+│   ├── data_quality_summary.txt
+│   ├── scheme_code_validation.csv
+│   ├── live_nav_metadata.csv
+│   └── live_nav_failed_requests.csv
+│
+├── bluestock_mf.db
+├── data_ingestion.py
+├── live_nav_fetch.py
+├── data_cleaning.py
+├── load_database.py
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## 🧹 Data Cleaning Summary
+
+| Dataset                        | Cleaning Performed                                                                        |
+| ------------------------------ | ----------------------------------------------------------------------------------------- |
+| `01_fund_master.csv`           | Removed duplicates and standardized column names                                          |
+| `02_nav_history.csv`           | Parsed dates, sorted by AMFI code and date, forward-filled missing NAV, validated NAV > 0 |
+| `03_aum_by_fund_house.csv`     | Removed duplicates and standardized column names                                          |
+| `04_monthly_sip_inflows.csv`   | Removed duplicates and standardized column names                                          |
+| `05_category_inflows.csv`      | Removed duplicates and standardized column names                                          |
+| `06_industry_folio_count.csv`  | Removed duplicates and standardized column names                                          |
+| `07_scheme_performance.csv`    | Converted returns to numeric, checked expense ratio range, flagged anomalies              |
+| `08_investor_transactions.csv` | Standardized transaction types, validated amount > 0, fixed dates, checked KYC status     |
+| `09_portfolio_holdings.csv`    | Removed duplicates and standardized column names                                          |
+| `10_benchmark_indices.csv`     | Removed duplicates and standardized column names                                          |
+
+---
+
+## 🗄️ SQLite Database
+
+Database created:
+
+```text
+bluestock_mf.db
+```
+
+All 10 cleaned CSV files were loaded successfully into SQLite tables.
+
+---
+
+## ✅ Row Count Verification
+
+| Table Name                 | CSV Rows | Database Rows |
+| -------------------------- | -------: | ------------: |
+| `01_fund_master`           |       40 |            40 |
+| `02_nav_history`           |    46000 |         46000 |
+| `03_aum_by_fund_house`     |       90 |            90 |
+| `04_monthly_sip_inflows`   |       48 |            48 |
+| `05_category_inflows`      |      144 |           144 |
+| `06_industry_folio_count`  |       21 |            21 |
+| `07_scheme_performance`    |       40 |            40 |
+| `08_investor_transactions` |    32778 |         32778 |
+| `09_portfolio_holdings`    |      322 |           322 |
+| `10_benchmark_indices`     |     8050 |          8050 |
+
+---
+
+## 🧾 SQL Files Created
+
+| File              | Description                                               |
+| ----------------- | --------------------------------------------------------- |
+| `sql/schema.sql`  | Contains SQLite schema design and CREATE TABLE statements |
+| `sql/queries.sql` | Contains 10 analytical SQL queries                        |
+
+---
+
+## 📊 Analytical SQL Queries Included
+
+The `queries.sql` file includes:
+
+1. Fund master preview
+2. Average NAV per month
+3. Highest NAV funds
+4. Top fund houses by AUM
+5. Monthly SIP inflow trend
+6. Category-wise inflows
+7. Industry folio count summary
+8. Funds with expense ratio below 1%
+9. Transactions by state
+10. Transaction type summary
+
+---
+
+## 📘 Data Dictionary
+
+Created:
+
+```text
+reports/data_dictionary.md
+```
+
+The data dictionary includes:
+
+* Table descriptions
+* Business use of each dataset
+* Cleaning rules applied
+* Source references
+* Final deliverables summary
+
+---
+
+## ▶️ Run Day 2 Scripts
+
+Run data cleaning:
+
+```bash
+python data_cleaning.py
+```
+
+Load cleaned data into SQLite:
+
+```bash
+python load_database.py
+```
+
+---
+
+## 🧾 Day 2 Git Commit
+
+```bash
+git add .
+git commit -m "Day 2: Cleaned data + SQLite DB loaded"
+git push
+```
+
+---
+
+## ✅ Day 2 Status
+
+Day 2 Completed Successfully.
+
+---
+
