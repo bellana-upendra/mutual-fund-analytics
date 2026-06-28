@@ -403,3 +403,224 @@ Day 2 Completed Successfully.
 
 ---
 
+
+---
+
+# 📅 Day 3: Exploratory Data Analysis (EDA)
+
+## ✅ Completed Tasks
+
+* Created `EDA_Analysis.ipynb` notebook
+* Loaded cleaned datasets from `data/processed/`
+* Performed NAV trend analysis for mutual fund schemes from 2022–2026
+* Highlighted 2023 bull run and 2024 market correction periods using Plotly
+* Created normalized NAV index chart for better fund comparison
+* Generated annual NAV return heatmap
+* Created AUM growth grouped bar chart by fund house from 2022–2025
+* Highlighted SBI Mutual Fund AUM dominance
+* Created 2025 AUM ranking chart by fund house
+* Analyzed monthly SIP inflow trend from Jan 2022 to Dec 2025
+* Annotated Dec 2025 SIP all-time high of ₹31,002 Cr
+* Created SIP 3-month rolling average trend chart
+* Generated category-wise net inflow heatmap
+* Analyzed investor age group distribution
+* Created SIP amount box plot by age group
+* Created investor gender split chart
+* Analyzed geographic SIP distribution by state
+* Created T30 vs B30 city tier distribution chart
+* Created folio count growth chart from 13.26 Cr to 26.12 Cr
+* Computed NAV daily return correlation matrix for 10 selected funds
+* Created sector allocation donut chart from portfolio holdings data
+* Created NAV volatility analysis by fund
+* Created category inflow area trend chart
+* Documented 10+ key EDA findings in Jupyter Markdown cells
+* Exported 15+ charts as PNG files for final report usage
+* Saved interactive Plotly charts as HTML files
+
+---
+
+## 📁 Day 3 Updated Project Structure
+
+```text
+mutual-fund-analytics/
+├── data/
+│   ├── raw/
+│   └── processed/
+│       ├── 01_fund_master_clean.csv
+│       ├── 02_nav_history_clean.csv
+│       ├── 03_aum_by_fund_house_clean.csv
+│       ├── 04_monthly_sip_inflows_clean.csv
+│       ├── 05_category_inflows_clean.csv
+│       ├── 06_industry_folio_count_clean.csv
+│       ├── 07_scheme_performance_clean.csv
+│       ├── 08_investor_transactions_clean.csv
+│       ├── 09_portfolio_holdings_clean.csv
+│       └── 10_benchmark_indices_clean.csv
+│
+├── notebooks/
+│   └── EDA_Analysis.ipynb
+│
+├── sql/
+│   ├── schema.sql
+│   └── queries.sql
+│
+├── dashboard/
+│
+├── reports/
+│   ├── charts/
+│   │   ├── 01_nav_trend_all_schemes.png
+│   │   ├── 02_normalized_nav_index.png
+│   │   ├── 03_annual_nav_return_heatmap.png
+│   │   ├── 04_aum_growth_grouped_bar.png
+│   │   ├── 05_aum_ranking_2025.png
+│   │   ├── 06_sip_inflow_timeseries.html
+│   │   ├── 07_sip_rolling_average.png
+│   │   ├── 08_category_inflow_heatmap.png
+│   │   ├── 09_age_group_distribution_pie.png
+│   │   ├── 10_sip_amount_boxplot_age_group.png
+│   │   ├── 11_gender_split_bar.png
+│   │   ├── 12_sip_amount_by_state.png
+│   │   ├── 13_t30_b30_city_tier_pie.png
+│   │   ├── 14_folio_count_growth.html
+│   │   ├── 15_nav_return_correlation_matrix.png
+│   │   ├── 16_sector_allocation_donut.png
+│   │   ├── 17_nav_volatility_by_fund.png
+│   │   └── 18_category_inflow_area_trend.png
+│   │
+│   ├── data_dictionary.md
+│   ├── data_ingestion_summary.csv
+│   ├── data_quality_summary.txt
+│   ├── scheme_code_validation.csv
+│   ├── live_nav_metadata.csv
+│   └── live_nav_failed_requests.csv
+│
+├── bluestock_mf.db
+├── data_ingestion.py
+├── live_nav_fetch.py
+├── data_cleaning.py
+├── load_database.py
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## 📊 EDA Charts Generated
+
+| No. | Chart Name                    | Description                                                 |
+| --- | ----------------------------- | ----------------------------------------------------------- |
+| 1   | Daily NAV Trend               | Shows NAV movement of mutual fund schemes from 2022–2026    |
+| 2   | Normalized NAV Index          | Compares fund performance by indexing NAV values to 100     |
+| 3   | Annual NAV Return Heatmap     | Shows yearly return performance by fund                     |
+| 4   | AUM Growth Grouped Bar        | Compares fund-house AUM growth from 2022–2025               |
+| 5   | 2025 AUM Ranking              | Ranks top fund houses by AUM in 2025                        |
+| 6   | SIP Inflow Time Series        | Shows monthly SIP inflow trend with Dec 2025 ATH annotation |
+| 7   | SIP Rolling Average           | Shows 3-month rolling average of SIP inflows                |
+| 8   | Category Inflow Heatmap       | Shows category-wise net inflow intensity by month           |
+| 9   | Age Group Distribution        | Shows investor age group distribution                       |
+| 10  | SIP Amount Box Plot           | Compares SIP amount distribution across age groups          |
+| 11  | Gender Split                  | Shows investor distribution by gender                       |
+| 12  | SIP Amount by State           | Shows geographic SIP contribution by state                  |
+| 13  | T30 vs B30 Pie Chart          | Shows investor distribution by city tier                    |
+| 14  | Folio Count Growth            | Shows growth from 13.26 Cr to 26.12 Cr folios               |
+| 15  | NAV Return Correlation Matrix | Shows pairwise return correlation between selected funds    |
+| 16  | Sector Allocation Donut       | Shows aggregate sector allocation from portfolio holdings   |
+| 17  | NAV Volatility by Fund        | Shows annualized NAV volatility by fund                     |
+| 18  | Category Inflow Area Trend    | Shows category-wise inflow trend over time                  |
+
+---
+
+## 📈 Key EDA Findings
+
+* NAV trends showed visible growth during the 2023 bull run and variation during 2024 correction periods.
+* Normalized NAV index helped compare funds fairly despite different original NAV levels.
+* Annual NAV return heatmap highlighted funds with stronger and weaker yearly performance.
+* AUM analysis showed clear dominance of leading fund houses, especially SBI Mutual Fund.
+* SIP inflows showed strong investor participation and reached an all-time high of ₹31,002 Cr in Dec 2025.
+* Category inflow heatmap showed changing investor preference across fund categories.
+* Investor demographics showed useful distribution patterns by age group and gender.
+* SIP amount box plot helped compare investment behavior across age groups.
+* Geographic analysis showed state-wise SIP participation and T30/B30 distribution.
+* Folio count grew from 13.26 Cr in Jan 2022 to 26.12 Cr in Dec 2025.
+* NAV return correlation matrix helped identify similarity between selected funds.
+* Sector allocation donut chart showed major sector exposure across equity fund holdings.
+* NAV volatility analysis identified funds with higher fluctuation risk.
+
+---
+
+## 📂 Exported Chart Files
+
+All generated charts are saved in:
+
+```text
+reports/charts/
+```
+
+The folder contains PNG charts and interactive HTML files generated from Plotly visualizations.
+
+---
+
+## 🛠️ Tools and Libraries Used
+
+| Tool / Library   | Purpose                                 |
+| ---------------- | --------------------------------------- |
+| Python           | Core programming language               |
+| Pandas           | Data analysis and transformation        |
+| NumPy            | Numerical calculations                  |
+| Matplotlib       | Static chart generation                 |
+| Seaborn          | Statistical visualizations and heatmaps |
+| Plotly           | Interactive charts                      |
+| Kaleido          | Plotly image export                     |
+| Jupyter Notebook | EDA notebook development                |
+
+---
+
+## ▶️ Run Day 3 Notebook
+
+Open Jupyter Notebook:
+
+```bash
+python -m notebook
+```
+
+Then open:
+
+```text
+notebooks/EDA_Analysis.ipynb
+```
+
+Run all notebook cells:
+
+```text
+Kernel → Restart Kernel and Run All Cells
+```
+
+---
+
+## 📦 Day 3 Deliverables
+
+| Deliverable               | Location                                   |
+| ------------------------- | ------------------------------------------ |
+| EDA Notebook              | `notebooks/EDA_Analysis.ipynb`             |
+| Exported Charts           | `reports/charts/`                          |
+| PNG Chart Files           | `reports/charts/*.png`                     |
+| Interactive Plotly Charts | `reports/charts/*.html`                    |
+| EDA Findings              | Markdown cells inside `EDA_Analysis.ipynb` |
+
+---
+
+## 🧾 Day 3 Git Commit
+
+```bash
+git add .
+git commit -m "Day 3: Complete EDA analysis with exported charts"
+git push
+```
+
+---
+
+## ✅ Day 3 Status
+
+Day 3 Completed Successfully.
+
+---
