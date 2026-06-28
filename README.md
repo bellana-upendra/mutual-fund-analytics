@@ -10,11 +10,11 @@
 
 This project is part of **Capstone Project I - Mutual Fund Analytics** for Bluestock Fintech.
 
-The main objective of Day 1 is to set up the project structure, load mutual fund datasets, fetch live NAV data from MFAPI, validate AMFI scheme codes, and generate initial data quality reports.
+The main objective of Task 1 is to set up the project structure, load mutual fund datasets, fetch live NAV data from MFAPI, validate AMFI scheme codes, and generate initial data quality reports.
 
 ---
 
-## 📅 Day 1: Project Setup + Data Ingestion
+## 📅 Task 1: Project Setup + Data Ingestion
 
 ### ✅ Completed Tasks
 
@@ -30,7 +30,7 @@ The main objective of Day 1 is to set up the project structure, load mutual fund
 * Fetched live NAV data from MFAPI
 * Saved live NAV data as raw CSV files
 * Generated data quality summary reports
-* Committed and pushed Day 1 work to GitHub
+* Committed and pushed Task 1 work to GitHub
 
 ---
 
@@ -119,7 +119,7 @@ pip install -r requirements.txt
 
 ---
 
-## ▶️ Run Day 1 Scripts
+## ▶️ Run Task 1 Scripts
 
 ### Run data ingestion
 
@@ -183,7 +183,7 @@ Fetched schemes:
 
 ```bash
 git add .
-git commit -m "Day 1: Data ingestion complete"
+git commit -m "Task 1: Data ingestion complete"
 git branch -M main
 git push -u origin main
 ```
@@ -208,12 +208,12 @@ GitHub: [bellana-upendra](https://github.com/bellana-upendra)
 
 ## ✅ Status
 
-**Day 1 Completed Successfully**
+**Task 1 Completed Successfully**
 
 
 ---
 
-# 📅 Day 2: Data Cleaning + SQLite Database Design
+# 📅 Task 2: Data Cleaning + SQLite Database Design
 
 ## ✅ Completed Tasks
 
@@ -234,11 +234,11 @@ GitHub: [bellana-upendra](https://github.com/bellana-upendra)
 * Created SQL schema file: `sql/schema.sql`
 * Created analytical SQL queries file: `sql/queries.sql`
 * Created data dictionary: `reports/data_dictionary.md`
-* Committed and pushed Day 2 work to GitHub
+* Committed and pushed Task 2 work to GitHub
 
 ---
 
-## 📁 Day 2 Updated Project Structure
+## 📁 Task 2 Updated Project Structure
 
 ```text
 mutual-fund-analytics/
@@ -371,7 +371,7 @@ The data dictionary includes:
 
 ---
 
-## ▶️ Run Day 2 Scripts
+## ▶️ Run Task 2 Scripts
 
 Run data cleaning:
 
@@ -387,26 +387,26 @@ python load_database.py
 
 ---
 
-## 🧾 Day 2 Git Commit
+## 🧾 Task 2 Git Commit
 
 ```bash
 git add .
-git commit -m "Day 2: Cleaned data + SQLite DB loaded"
+git commit -m "Task 2: Cleaned data + SQLite DB loaded"
 git push
 ```
 
 ---
 
-## ✅ Day 2 Status
+## ✅ Task 2 Status
 
-Day 2 Completed Successfully.
-
----
-
+Task 2 Completed Successfully.
 
 ---
 
-# 📅 Day 3: Exploratory Data Analysis (EDA)
+
+---
+
+# 📅 Task 3: Exploratory Data Analysis (EDA)
 
 ## ✅ Completed Tasks
 
@@ -439,7 +439,7 @@ Day 2 Completed Successfully.
 
 ---
 
-## 📁 Day 3 Updated Project Structure
+## 📁 Task 3 Updated Project Structure
 
 ```text
 mutual-fund-analytics/
@@ -575,7 +575,7 @@ The folder contains PNG charts and interactive HTML files generated from Plotly 
 
 ---
 
-## ▶️ Run Day 3 Notebook
+## ▶️ Run Task 3 Notebook
 
 Open Jupyter Notebook:
 
@@ -597,7 +597,7 @@ Kernel → Restart Kernel and Run All Cells
 
 ---
 
-## 📦 Day 3 Deliverables
+## 📦 Task 3 Deliverables
 
 | Deliverable               | Location                                   |
 | ------------------------- | ------------------------------------------ |
@@ -609,18 +609,306 @@ Kernel → Restart Kernel and Run All Cells
 
 ---
 
-## 🧾 Day 3 Git Commit
+## 🧾 Task 3 Git Commit
 
 ```bash
 git add .
-git commit -m "Day 3: Complete EDA analysis with exported charts"
+git commit -m "Task 3: Complete EDA analysis with exported charts"
 git push
 ```
 
 ---
 
-## ✅ Day 3 Status
+## ✅ Task 3 Status
 
-Day 3 Completed Successfully.
+Task 3 Completed Successfully.
+
+---
+
+
+# 📅 Task 4 : Fund Performance Analytics
+
+## ✅ Completed Tasks
+
+* Created `Performance_Analytics.ipynb` notebook
+* Loaded cleaned NAV history from `data/processed/02_nav_history_clean.csv`
+* Loaded fund master data from `data/processed/01_fund_master_clean.csv`
+* Merged NAV data with fund master data using `amfi_code`
+* Loaded benchmark index data from `data/processed/10_benchmark_indices_clean.csv`
+* Converted benchmark data from long format into Nifty 50 and Nifty 100 columns
+* Computed daily returns for all 40 mutual fund schemes
+* Validated daily return distribution using histogram
+* Calculated CAGR for 1-year, 3-year, and 5-year periods
+* Computed Sharpe Ratio using 6.5% risk-free rate
+* Computed Sortino Ratio using downside deviation
+* Calculated Alpha and Beta using Nifty 100 benchmark returns
+* Computed R-squared values for regression analysis
+* Calculated Maximum Drawdown for each fund
+* Identified worst drawdown start and end dates
+* Created Fund Scorecard using weighted composite ranking
+* Ranked all 40 funds on a 0–100 score scale
+* Selected top 5 funds based on composite fund score
+* Created benchmark comparison chart for top 5 funds vs Nifty 50 and Nifty 100
+* Calculated tracking error against Nifty 50 and Nifty 100
+* Exported performance CSV files and PNG charts for final submission
+
+---
+
+## 📁 Task 4 : Updated Project Structure
+
+```text
+mutual-fund-analytics/
+├── data/
+│   ├── raw/
+│   └── processed/
+│       ├── 01_fund_master_clean.csv
+│       ├── 02_nav_history_clean.csv
+│       ├── 03_aum_by_fund_house_clean.csv
+│       ├── 04_monthly_sip_inflows_clean.csv
+│       ├── 05_category_inflows_clean.csv
+│       ├── 06_industry_folio_count_clean.csv
+│       ├── 07_scheme_performance_clean.csv
+│       ├── 08_investor_transactions_clean.csv
+│       ├── 09_portfolio_holdings_clean.csv
+│       └── 10_benchmark_indices_clean.csv
+│
+├── notebooks/
+│   ├── EDA_Analysis.ipynb
+│   └── Performance_Analytics.ipynb
+│
+├── sql/
+│   ├── schema.sql
+│   └── queries.sql
+│
+├── dashboard/
+│
+├── reports/
+│   ├── charts/
+│   │   ├── benchmark_comparison_top5.png
+│   │   └── daily_return_distribution.png
+│   │
+│   ├── performance/
+│   │   ├── alpha_beta.csv
+│   │   ├── fund_scorecard.csv
+│   │   ├── performance_summary.csv
+│   │   └── tracking_error_top5.csv
+│   │
+│   ├── data_dictionary.md
+│   ├── data_ingestion_summary.csv
+│   ├── data_quality_summary.txt
+│   ├── scheme_code_validation.csv
+│   ├── live_nav_metadata.csv
+│   └── live_nav_failed_requests.csv
+│
+├── bluestock_mf.db
+├── data_ingestion.py
+├── live_nav_fetch.py
+├── data_cleaning.py
+├── load_database.py
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## 📊 Performance Metrics Implemented
+
+| Metric           | Description                                                            |
+| ---------------- | ---------------------------------------------------------------------- |
+| Daily Returns    | Calculated day-to-day NAV percentage change for each scheme            |
+| CAGR             | Computed 1-year, 3-year, and 5-year compounded annual growth rate      |
+| Sharpe Ratio     | Measured risk-adjusted return using total volatility                   |
+| Sortino Ratio    | Measured risk-adjusted return using downside volatility                |
+| Alpha            | Calculated excess return over Nifty 100 benchmark using OLS regression |
+| Beta             | Measured fund sensitivity against Nifty 100 benchmark returns          |
+| R-squared        | Measured regression fit between fund returns and benchmark returns     |
+| Maximum Drawdown | Identified largest peak-to-trough NAV decline                          |
+| Tracking Error   | Measured deviation of fund returns from benchmark returns              |
+| Fund Scorecard   | Ranked all funds using weighted composite scoring                      |
+
+---
+
+## 🧮 Key Formulas Used
+
+### Daily Returns
+
+```text
+daily_return = NAV_t / NAV_t-1 - 1
+```
+
+### CAGR
+
+```text
+CAGR = (NAV_end / NAV_start) ^ (1 / years) - 1
+```
+
+### Sharpe Ratio
+
+```text
+Sharpe Ratio = ((Average Daily Return - Daily Risk-Free Rate) / Standard Deviation) × √252
+```
+
+Risk-free rate used:
+
+```text
+6.5%
+```
+
+### Sortino Ratio
+
+```text
+Sortino Ratio = ((Average Daily Return - Daily Risk-Free Rate) / Downside Deviation) × √252
+```
+
+### Alpha and Beta
+
+Alpha and Beta were calculated using OLS regression against Nifty 100 daily returns.
+
+```text
+Beta = Regression slope
+Alpha = Regression intercept × 252
+```
+
+### Maximum Drawdown
+
+```text
+Drawdown = NAV / Running Maximum NAV - 1
+```
+
+### Tracking Error
+
+```text
+Tracking Error = Standard Deviation(Fund Return - Benchmark Return) × √252
+```
+
+---
+
+## 🏆 Fund Scorecard Methodology
+
+The final fund score was calculated on a 0–100 scale using weighted percentile ranks.
+
+```text
+Fund Score =
+30% × 3-Year Return Rank
++ 25% × Sharpe Ratio Rank
++ 20% × Alpha Rank
++ 15% × Expense Ratio Rank Inverse
++ 10% × Maximum Drawdown Rank Inverse
+```
+
+Higher score indicates stronger overall performance based on return, risk-adjusted performance, alpha generation, cost efficiency, and drawdown control.
+
+---
+
+## 🔝 Top 5 Funds by Composite Score
+
+| Rank | Fund Name                                     |
+| ---- | --------------------------------------------- |
+| 1    | Kotak Flexicap Fund - Regular - Growth        |
+| 2    | ICICI Pru Midcap Fund - Regular - Growth      |
+| 3    | Mirae Asset Large Cap Fund - Regular - Growth |
+| 4    | Axis Midcap Fund - Regular - Growth           |
+| 5    | DSP Small Cap Fund - Regular - Growth         |
+
+---
+
+## 📈 Task 4 :Charts Generated
+
+| Chart File                      | Description                                                      |
+| ------------------------------- | ---------------------------------------------------------------- |
+| `benchmark_comparison_top5.png` | Compares top 5 funds against Nifty 50 and Nifty 100 over 3 years |
+| `daily_return_distribution.png` | Shows daily return distribution across all mutual fund schemes   |
+
+---
+
+## 📦 Task 4 :Deliverables
+
+| Deliverable                     | Location                                       |
+| ------------------------------- | ---------------------------------------------- |
+| Performance Analytics Notebook  | `notebooks/Performance_Analytics.ipynb`        |
+| Fund Scorecard                  | `reports/performance/fund_scorecard.csv`       |
+| Alpha and Beta Output           | `reports/performance/alpha_beta.csv`           |
+| Tracking Error Output           | `reports/performance/tracking_error_top5.csv`  |
+| Performance Summary             | `reports/performance/performance_summary.csv`  |
+| Benchmark Comparison Chart      | `reports/charts/benchmark_comparison_top5.png` |
+| Daily Return Distribution Chart | `reports/charts/daily_return_distribution.png` |
+
+---
+
+## 📌 Key Performance Findings
+
+* All 40 mutual fund schemes were analyzed using historical NAV data.
+* Daily return distribution was generated and validated for reasonableness.
+* CAGR comparison helped identify funds with stronger long-term growth.
+* Sharpe and Sortino ratios helped compare risk-adjusted fund performance.
+* Alpha and Beta analysis measured performance relative to Nifty 100 benchmark.
+* Maximum Drawdown analysis identified funds with higher downside risk.
+* Composite scorecard ranked funds using return, risk, alpha, expense ratio, and drawdown metrics.
+* Top 5 funds were compared against Nifty 50 and Nifty 100 using a normalized benchmark chart.
+* Tracking error was calculated to measure fund deviation from benchmark returns.
+
+---
+
+## ⚠️ Data Note
+
+The dataset appears to be academic/simulated and contains NAV values beyond the current date. All calculations were performed consistently for analytics, ranking, and comparison purposes.
+
+---
+
+## ▶️ Run Task 4 :Notebook
+
+Open Jupyter Notebook:
+
+```bash
+python -m notebook
+```
+
+Then open:
+
+```text
+notebooks/Performance_Analytics.ipynb
+```
+
+Run all notebook cells:
+
+```text
+Kernel → Restart Kernel and Run All Cells
+```
+
+---
+
+## 📦 Task 4 :Deliverables Summary
+
+| Required File                   | Status    |
+| ------------------------------- | --------- |
+| `Performance_Analytics.ipynb`   | Completed |
+| `fund_scorecard.csv`            | Completed |
+| `alpha_beta.csv`                | Completed |
+| `benchmark_comparison_top5.png` | Completed |
+| `tracking_error_top5.csv`       | Completed |
+| `performance_summary.csv`       | Completed |
+| `daily_return_distribution.png` | Completed |
+
+---
+
+## 🧾 Task 4 :Git Commit
+
+```bash
+git add notebooks/Performance_Analytics.ipynb
+git add reports/performance/alpha_beta.csv
+git add reports/performance/fund_scorecard.csv
+git add reports/performance/performance_summary.csv
+git add reports/performance/tracking_error_top5.csv
+git add reports/charts/benchmark_comparison_top5.png
+git add reports/charts/daily_return_distribution.png
+git add README.md
+git commit -m "Day 4: Fund performance analytics complete"
+git push
+```
+
+---
+
+## ✅ Task 4 :Status
+ Task 4 :Completed Successfully.
 
 ---
