@@ -2,98 +2,122 @@
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue)
 ![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-green)
-![ETL](https://img.shields.io/badge/ETL-Data%20Ingestion-orange)
-![GitHub](https://img.shields.io/badge/GitHub-Repository-black)
+![SQLite](https://img.shields.io/badge/SQLite-Database-lightgrey)
+![ETL](https://img.shields.io/badge/ETL-Pipeline-orange)
+![PowerBI](https://img.shields.io/badge/Power%20BI-Dashboard-yellow)
 ![Status](https://img.shields.io/badge/Status-Day%205%20Completed-brightgreen)
+
+---
 
 ## 🚀 Project Overview
 
 This project is part of **Capstone Project I - Mutual Fund Analytics** for Bluestock Fintech.
 
-The main objective of Task 1 is to set up the project structure, load mutual fund datasets, fetch live NAV data from MFAPI, validate AMFI scheme codes, and generate initial data quality reports.
+The objective of this capstone is to build an end-to-end mutual fund analytics solution covering:
+
+* Data ingestion and cleaning
+* SQLite database design
+* Exploratory Data Analysis
+* Fund performance analytics
+* Advanced risk analytics
+* Risk-based fund recommendation
+* Interactive dashboard preparation
+* Final reporting and presentation
 
 ---
 
-## 📅 Task 1: Project Setup + Data Ingestion
+## ✅ Final Deliverables Status
 
-### ✅ Completed Tasks
-
-* Created project folder structure
-* Initialized Git repository
-* Installed required Python dependencies
-* Created `requirements.txt`
-* Loaded all 10 provided CSV datasets using Pandas
-* Printed `.shape`, `.dtypes`, and `.head()` for each dataset
-* Explored `fund_master` dataset
-* Printed unique fund houses, categories, and sub-categories
-* Validated AMFI scheme codes between `fund_master` and `nav_history`
-* Fetched live NAV data from MFAPI
-* Saved live NAV data as raw CSV files
-* Generated data quality summary reports
-* Committed and pushed Task 1 work to GitHub
+| ID | Deliverable                         | Status                | Location                                                           |
+| -- | ----------------------------------- | --------------------- | ------------------------------------------------------------------ |
+| D1 | ETL Pipeline Script                 | Completed             | `scripts/etl_pipeline.py`                                          |
+| D2 | SQLite Database                     | Completed             | `data/db/bluestock_mf.db`                                          |
+| D3 | EDA Notebook                        | Completed             | `notebooks/03_eda_analysis.ipynb`                                  |
+| D4 | Performance Metrics Notebook + CSVs | Completed             | `notebooks/04_performance_analytics.ipynb`, `reports/performance/` |
+| D5 | Interactive Dashboard               | Pending / In Progress | `dashboard/bluestock_mf.pbix`                                      |
+| D6 | Advanced Analytics Notebook         | Completed             | `notebooks/05_advanced_analytics.ipynb`                            |
+| D7 | Final Report + Slides               | Pending / In Progress | `reports/Final_Report.pdf`, `reports/Presentation.pptx`            |
 
 ---
 
-## 📁 Project Folder Structure
+## 📁 Final Project Folder Structure
 
 ```text
 mutual-fund-analytics/
 ├── data/
 │   ├── raw/
-│   │   ├── 01_fund_master.csv
-│   │   ├── 02_nav_history.csv
-│   │   ├── 03_aum_by_fund_house.csv
-│   │   ├── 04_monthly_sip_inflows.csv
-│   │   ├── 05_category_inflows.csv
-│   │   ├── 06_industry_folio_count.csv
-│   │   ├── 07_scheme_performance.csv
-│   │   ├── 08_investor_transactions.csv
-│   │   ├── 09_portfolio_holdings.csv
-│   │   ├── 10_benchmark_indices.csv
-│   │   └── live_nav/
-│   └── processed/
+│   ├── processed/
+│   │   ├── 01_fund_master_clean.csv
+│   │   ├── 02_nav_history_clean.csv
+│   │   ├── 03_aum_by_fund_house_clean.csv
+│   │   ├── 04_monthly_sip_inflows_clean.csv
+│   │   ├── 05_category_inflows_clean.csv
+│   │   ├── 06_industry_folio_count_clean.csv
+│   │   ├── 07_scheme_performance_clean.csv
+│   │   ├── 08_investor_transactions_clean.csv
+│   │   ├── 09_portfolio_holdings_clean.csv
+│   │   └── 10_benchmark_indices_clean.csv
+│   └── db/
+│       └── bluestock_mf.db
+│
 ├── notebooks/
+│   ├── 03_eda_analysis.ipynb
+│   ├── 04_performance_analytics.ipynb
+│   └── 05_advanced_analytics.ipynb
+│
+├── scripts/
+│   ├── etl_pipeline.py
+│   ├── data_ingestion.py
+│   ├── data_cleaning.py
+│   ├── load_database.py
+│   ├── live_nav_fetch.py
+│   ├── compute_metrics.py
+│   └── recommender.py
+│
 ├── sql/
+│   ├── schema.sql
+│   └── queries.sql
+│
 ├── dashboard/
+│   └── bluestock_mf.pbix
+│
 ├── reports/
-├── data_ingestion.py
-├── live_nav_fetch.py
+│   ├── charts/
+│   ├── performance/
+│   ├── advanced_analytics/
+│   ├── dashboard_screenshots/
+│   ├── data_dictionary.md
+│   ├── data_ingestion_summary.csv
+│   ├── data_quality_summary.txt
+│   ├── scheme_code_validation.csv
+│   ├── live_nav_metadata.csv
+│   ├── live_nav_failed_requests.csv
+│   ├── Final_Report.pdf
+│   └── Presentation.pptx
+│
+├── README.md
 ├── requirements.txt
-└── README.md
+└── .gitignore
 ```
-
----
-
-## 📦 Datasets Used
-
-| No. | Dataset Name                   | Description                  |
-| --- | ------------------------------ | ---------------------------- |
-| 1   | `01_fund_master.csv`           | Mutual fund master data      |
-| 2   | `02_nav_history.csv`           | Historical NAV data          |
-| 3   | `03_aum_by_fund_house.csv`     | AUM data by fund house       |
-| 4   | `04_monthly_sip_inflows.csv`   | Monthly SIP inflow data      |
-| 5   | `05_category_inflows.csv`      | Category-wise inflow data    |
-| 6   | `06_industry_folio_count.csv`  | Industry folio count data    |
-| 7   | `07_scheme_performance.csv`    | Scheme performance metrics   |
-| 8   | `08_investor_transactions.csv` | Investor transaction records |
-| 9   | `09_portfolio_holdings.csv`    | Portfolio holdings data      |
-| 10  | `10_benchmark_indices.csv`     | Benchmark index data         |
 
 ---
 
 ## 🛠️ Technologies Used
 
-| Tool / Library | Purpose                   |
-| -------------- | ------------------------- |
-| Python         | Core programming language |
-| Pandas         | Data loading and analysis |
-| NumPy          | Numerical operations      |
-| Requests       | API data fetching         |
-| Matplotlib     | Data visualization        |
-| Seaborn        | Statistical visualization |
-| Plotly         | Interactive visualization |
-| SQLAlchemy     | Database connectivity     |
-| SciPy          | Scientific computing      |
+| Tool / Library   | Purpose                                 |
+| ---------------- | --------------------------------------- |
+| Python           | Core programming language               |
+| Pandas           | Data loading, cleaning, and analysis    |
+| NumPy            | Numerical calculations                  |
+| Requests         | MFAPI live NAV fetching                 |
+| Matplotlib       | Static chart generation                 |
+| Seaborn          | Statistical visualization               |
+| Plotly           | Interactive visualizations              |
+| SQLite           | Local database storage                  |
+| SQLAlchemy       | Database connectivity                   |
+| SciPy            | Statistical and regression calculations |
+| Jupyter Notebook | Analysis notebooks                      |
+| Power BI         | Dashboard development                   |
 
 ---
 
@@ -119,226 +143,140 @@ pip install -r requirements.txt
 
 ---
 
-## ▶️ Run Task 1 Scripts
+## ▶️ Run ETL Pipeline
 
-### Run data ingestion
-
-```bash
-python data_ingestion.py
-```
-
-### Run live NAV fetch
+Run from the project root:
 
 ```bash
-python live_nav_fetch.py
+python scripts/etl_pipeline.py
 ```
 
----
+The ETL pipeline performs:
 
-## 📊 Generated Reports
-
-| Report                                 | Description                        |
-| -------------------------------------- | ---------------------------------- |
-| `reports/data_ingestion_summary.csv`   | Summary of loaded CSV files        |
-| `reports/data_quality_summary.txt`     | Data quality observations          |
-| `reports/scheme_code_validation.csv`   | AMFI code validation results       |
-| `reports/live_nav_metadata.csv`        | Live NAV API metadata              |
-| `reports/live_nav_failed_requests.csv` | Failed API request details, if any |
+1. Data ingestion
+2. Data cleaning
+3. SQLite schema creation
+4. Cleaned CSV loading into SQLite
+5. Row count validation
 
 ---
 
-## 🔎 Key Data Quality Findings
+## ▶️ Run Individual Scripts
 
-* All 10 provided CSV datasets were successfully loaded using Pandas.
-* The `fund_master` dataset contains fund house, category, sub-category, plan, benchmark, expense ratio, manager, and risk classification details.
-* The dataset uses `risk_category` as the risk classification column.
-* AMFI scheme codes were validated between `fund_master` and `nav_history`.
-* Some assigned MFAPI scheme codes returned different scheme names than expected, so they were recorded as data-quality anomalies.
-* The assigned code `125497` was mentioned as HDFC Top 100 Direct in the task, but MFAPI returned a different scheme name during validation.
-
----
-
-## 🌐 MFAPI Live NAV Fetch
-
-Live NAV data was fetched from:
-
-```text
-https://api.mfapi.in/mf/{scheme_code}
-```
-
-Fetched schemes:
-
-| Assigned Fund       | Scheme Code | Validation Status |
-| ------------------- | ----------: | ----------------- |
-| HDFC Top 100 Direct |      125497 | Mismatch found    |
-| SBI Bluechip        |      119551 | Mismatch found    |
-| ICICI Bluechip      |      120503 | Mismatch found    |
-| Nippon Large Cap    |      118632 | Matched           |
-| Axis Bluechip       |      119092 | Mismatch found    |
-| Kotak Bluechip      |      120841 | Mismatch found    |
-
----
-
-## 🧾 Git Commit
+### Data ingestion
 
 ```bash
-git add .
-git commit -m "Task 1: Data ingestion complete"
-git branch -M main
-git push -u origin main
+python scripts/data_ingestion.py
+```
+
+### Live NAV fetch
+
+```bash
+python scripts/live_nav_fetch.py
+```
+
+### Data cleaning
+
+```bash
+python scripts/data_cleaning.py
+```
+
+### Load cleaned data into SQLite
+
+```bash
+python scripts/load_database.py
+```
+
+### Check metrics output files
+
+```bash
+python scripts/compute_metrics.py
+```
+
+### Run fund recommender
+
+```bash
+python scripts/recommender.py --risk Low
+python scripts/recommender.py --risk Moderate
+python scripts/recommender.py --risk High
 ```
 
 ---
 
-## 🔗 Repository
+## 📦 Datasets Used
 
-```text
-https://github.com/bellana-upendra/mutual-fund-analytics
-```
-
----
-
-## 👤 Author
-
-**Bellana Upendra**
-B.Tech CSE - Artificial Intelligence and Machine Learning
-GitHub: [bellana-upendra](https://github.com/bellana-upendra)
-
----
-
-## ✅ Status
-
-**Task 1 Completed Successfully**
-
-
----
-
-# 📅 Task 2: Data Cleaning + SQLite Database Design
-
-## ✅ Completed Tasks
-
-* Cleaned all 10 mutual fund datasets
-* Parsed date columns into proper datetime format
-* Removed duplicate records
-* Validated NAV values greater than 0
-* Forward-filled missing NAV values for holidays/weekends
-* Standardized transaction types such as SIP, Lumpsum, and Redemption
-* Validated transaction amount values greater than 0
-* Fixed transaction date formats
-* Checked and standardized KYC status values
-* Converted scheme performance return columns into numeric format
-* Checked expense ratio range between 0.1% and 2.5%
-* Created SQLite database: `bluestock_mf.db`
-* Loaded all cleaned datasets into SQLite tables
-* Verified row counts between cleaned CSV files and SQLite database tables
-* Created SQL schema file: `sql/schema.sql`
-* Created analytical SQL queries file: `sql/queries.sql`
-* Created data dictionary: `reports/data_dictionary.md`
-* Committed and pushed Task 2 work to GitHub
-
----
-
-## 📁 Task 2 Updated Project Structure
-
-```text
-mutual-fund-analytics/
-├── data/
-│   ├── raw/
-│   └── processed/
-│       ├── 01_fund_master_clean.csv
-│       ├── 02_nav_history_clean.csv
-│       ├── 03_aum_by_fund_house_clean.csv
-│       ├── 04_monthly_sip_inflows_clean.csv
-│       ├── 05_category_inflows_clean.csv
-│       ├── 06_industry_folio_count_clean.csv
-│       ├── 07_scheme_performance_clean.csv
-│       ├── 08_investor_transactions_clean.csv
-│       ├── 09_portfolio_holdings_clean.csv
-│       └── 10_benchmark_indices_clean.csv
-│
-├── notebooks/
-├── sql/
-│   ├── schema.sql
-│   └── queries.sql
-│
-├── dashboard/
-├── reports/
-│   ├── data_dictionary.md
-│   ├── data_ingestion_summary.csv
-│   ├── data_quality_summary.txt
-│   ├── scheme_code_validation.csv
-│   ├── live_nav_metadata.csv
-│   └── live_nav_failed_requests.csv
-│
-├── bluestock_mf.db
-├── data_ingestion.py
-├── live_nav_fetch.py
-├── data_cleaning.py
-├── load_database.py
-├── requirements.txt
-└── README.md
-```
+| No. | Dataset Name                   | Description                  |
+| --- | ------------------------------ | ---------------------------- |
+| 1   | `01_fund_master.csv`           | Mutual fund master data      |
+| 2   | `02_nav_history.csv`           | Historical NAV data          |
+| 3   | `03_aum_by_fund_house.csv`     | AUM data by fund house       |
+| 4   | `04_monthly_sip_inflows.csv`   | Monthly SIP inflow data      |
+| 5   | `05_category_inflows.csv`      | Category-wise inflow data    |
+| 6   | `06_industry_folio_count.csv`  | Industry folio count data    |
+| 7   | `07_scheme_performance.csv`    | Scheme performance metrics   |
+| 8   | `08_investor_transactions.csv` | Investor transaction records |
+| 9   | `09_portfolio_holdings.csv`    | Portfolio holdings data      |
+| 10  | `10_benchmark_indices.csv`     | Benchmark index data         |
 
 ---
 
 ## 🧹 Data Cleaning Summary
 
-| Dataset                        | Cleaning Performed                                                                        |
-| ------------------------------ | ----------------------------------------------------------------------------------------- |
-| `01_fund_master.csv`           | Removed duplicates and standardized column names                                          |
-| `02_nav_history.csv`           | Parsed dates, sorted by AMFI code and date, forward-filled missing NAV, validated NAV > 0 |
-| `03_aum_by_fund_house.csv`     | Removed duplicates and standardized column names                                          |
-| `04_monthly_sip_inflows.csv`   | Removed duplicates and standardized column names                                          |
-| `05_category_inflows.csv`      | Removed duplicates and standardized column names                                          |
-| `06_industry_folio_count.csv`  | Removed duplicates and standardized column names                                          |
-| `07_scheme_performance.csv`    | Converted returns to numeric, checked expense ratio range, flagged anomalies              |
-| `08_investor_transactions.csv` | Standardized transaction types, validated amount > 0, fixed dates, checked KYC status     |
-| `09_portfolio_holdings.csv`    | Removed duplicates and standardized column names                                          |
-| `10_benchmark_indices.csv`     | Removed duplicates and standardized column names                                          |
+The following cleaning steps were performed:
+
+* Standardized column names
+* Parsed date columns into proper datetime format
+* Removed duplicate records
+* Validated NAV values greater than 0
+* Forward-filled missing NAV values for weekends and holidays
+* Standardized transaction types such as SIP, Lumpsum, and Redemption
+* Validated transaction amounts greater than 0
+* Checked and standardized KYC status values
+* Converted scheme performance return columns into numeric format
+* Validated expense ratio range
+* Exported all cleaned datasets to `data/processed/`
 
 ---
 
 ## 🗄️ SQLite Database
 
-Database created:
+SQLite database created:
 
 ```text
-bluestock_mf.db
+data/db/bluestock_mf.db
 ```
 
-All 10 cleaned CSV files were loaded successfully into SQLite tables.
+All 10 cleaned datasets were loaded into SQLite tables.
+
+> Note: The `.db` file is not committed to GitHub. It should be shared through Google Drive only.
 
 ---
 
 ## ✅ Row Count Verification
 
-| Table Name                 | CSV Rows | Database Rows |
-| -------------------------- | -------: | ------------: |
-| `01_fund_master`           |       40 |            40 |
-| `02_nav_history`           |    46000 |         46000 |
-| `03_aum_by_fund_house`     |       90 |            90 |
-| `04_monthly_sip_inflows`   |       48 |            48 |
-| `05_category_inflows`      |      144 |           144 |
-| `06_industry_folio_count`  |       21 |            21 |
-| `07_scheme_performance`    |       40 |            40 |
-| `08_investor_transactions` |    32778 |         32778 |
-| `09_portfolio_holdings`    |      322 |           322 |
-| `10_benchmark_indices`     |     8050 |          8050 |
+| Table Name                 | CSV Rows | DB Rows |
+| -------------------------- | -------: | ------: |
+| `01_fund_master`           |       40 |      40 |
+| `02_nav_history`           |    46000 |   46000 |
+| `03_aum_by_fund_house`     |       90 |      90 |
+| `04_monthly_sip_inflows`   |       48 |      48 |
+| `05_category_inflows`      |      144 |     144 |
+| `06_industry_folio_count`  |       21 |      21 |
+| `07_scheme_performance`    |       40 |      40 |
+| `08_investor_transactions` |    32778 |   32778 |
+| `09_portfolio_holdings`    |      322 |     322 |
+| `10_benchmark_indices`     |     8050 |    8050 |
 
 ---
 
-## 🧾 SQL Files Created
+## 🧾 SQL Files
 
-| File              | Description                                               |
-| ----------------- | --------------------------------------------------------- |
-| `sql/schema.sql`  | Contains SQLite schema design and CREATE TABLE statements |
-| `sql/queries.sql` | Contains 10 analytical SQL queries                        |
+| File              | Description                              |
+| ----------------- | ---------------------------------------- |
+| `sql/schema.sql`  | SQLite schema and table creation queries |
+| `sql/queries.sql` | Analytical SQL queries for reporting     |
 
----
-
-## 📊 Analytical SQL Queries Included
-
-The `queries.sql` file includes:
+The `queries.sql` file includes queries for:
 
 1. Fund master preview
 2. Average NAV per month
@@ -353,382 +291,132 @@ The `queries.sql` file includes:
 
 ---
 
-## 📘 Data Dictionary
+# 📅 Task 1: Project Setup + Data Ingestion
 
-Created:
+## ✅ Completed
+
+* Created project folder structure
+* Initialized Git repository
+* Installed required Python dependencies
+* Created `requirements.txt`
+* Loaded all 10 provided CSV datasets using Pandas
+* Printed `.shape`, `.dtypes`, and `.head()` for each dataset
+* Explored `fund_master` dataset
+* Validated AMFI scheme codes between `fund_master` and `nav_history`
+* Fetched live NAV data from MFAPI
+* Saved live NAV data as raw CSV files
+* Generated data quality summary reports
+
+---
+
+## 🌐 MFAPI Live NAV Fetch
+
+Live NAV data was fetched from:
 
 ```text
-reports/data_dictionary.md
+https://api.mfapi.in/mf/{scheme_code}
 ```
 
-The data dictionary includes:
+### Scheme Code Validation Summary
 
-* Table descriptions
-* Business use of each dataset
-* Cleaning rules applied
-* Source references
-* Final deliverables summary
+| Assigned Fund       | Scheme Code | Validation Status |
+| ------------------- | ----------: | ----------------- |
+| HDFC Top 100 Direct |      125497 | Mismatch found    |
+| SBI Bluechip        |      119551 | Mismatch found    |
+| ICICI Bluechip      |      120503 | Mismatch found    |
+| Nippon Large Cap    |      118632 | Matched           |
+| Axis Bluechip       |      119092 | Mismatch found    |
+| Kotak Bluechip      |      120841 | Mismatch found    |
 
----
-
-## ▶️ Run Task 2 Scripts
-
-Run data cleaning:
-
-```bash
-python data_cleaning.py
-```
-
-Load cleaned data into SQLite:
-
-```bash
-python load_database.py
-```
+Some assigned MFAPI scheme codes returned different scheme names than expected. These were recorded as data-quality anomalies.
 
 ---
 
-## 🧾 Task 2 Git Commit
+# 📅 Task 2: Data Cleaning + SQLite Database Design
 
-```bash
-git add .
-git commit -m "Task 2: Cleaned data + SQLite DB loaded"
-git push
-```
+## ✅ Completed
 
----
-
-## ✅ Task 2 Status
-
-Task 2 Completed Successfully.
-
----
-
+* Cleaned all 10 mutual fund datasets
+* Created cleaned CSV files in `data/processed/`
+* Created SQLite database
+* Loaded cleaned datasets into SQLite tables
+* Verified row counts between CSV files and database tables
+* Created `sql/schema.sql`
+* Created `sql/queries.sql`
+* Created `reports/data_dictionary.md`
 
 ---
 
-# 📅 Task 3: Exploratory Data Analysis (EDA)
+# 📅 Task 3: Exploratory Data Analysis
 
-## ✅ Completed Tasks
+## ✅ Completed
 
-* Created `EDA_Analysis.ipynb` notebook
+* Created EDA notebook: `notebooks/03_eda_analysis.ipynb`
 * Loaded cleaned datasets from `data/processed/`
-* Performed NAV trend analysis for mutual fund schemes from 2022–2026
-* Highlighted 2023 bull run and 2024 market correction periods using Plotly
-* Created normalized NAV index chart for better fund comparison
+* Performed NAV trend analysis
+* Created normalized NAV index chart
 * Generated annual NAV return heatmap
-* Created AUM growth grouped bar chart by fund house from 2022–2025
-* Highlighted SBI Mutual Fund AUM dominance
-* Created 2025 AUM ranking chart by fund house
-* Analyzed monthly SIP inflow trend from Jan 2022 to Dec 2025
-* Annotated Dec 2025 SIP all-time high of ₹31,002 Cr
-* Created SIP 3-month rolling average trend chart
-* Generated category-wise net inflow heatmap
-* Analyzed investor age group distribution
-* Created SIP amount box plot by age group
-* Created investor gender split chart
-* Analyzed geographic SIP distribution by state
+* Analyzed AUM growth by fund house
+* Analyzed SIP inflow trend
+* Created category-wise net inflow heatmap
+* Analyzed investor demographics
+* Created state-wise SIP distribution chart
 * Created T30 vs B30 city tier distribution chart
-* Created folio count growth chart from 13.26 Cr to 26.12 Cr
-* Computed NAV daily return correlation matrix for 10 selected funds
-* Created sector allocation donut chart from portfolio holdings data
-* Created NAV volatility analysis by fund
-* Created category inflow area trend chart
-* Documented 10+ key EDA findings in Jupyter Markdown cells
-* Exported 15+ charts as PNG files for final report usage
-* Saved interactive Plotly charts as HTML files
-
----
-
-## 📁 Task 3 Updated Project Structure
-
-```text
-mutual-fund-analytics/
-├── data/
-│   ├── raw/
-│   └── processed/
-│       ├── 01_fund_master_clean.csv
-│       ├── 02_nav_history_clean.csv
-│       ├── 03_aum_by_fund_house_clean.csv
-│       ├── 04_monthly_sip_inflows_clean.csv
-│       ├── 05_category_inflows_clean.csv
-│       ├── 06_industry_folio_count_clean.csv
-│       ├── 07_scheme_performance_clean.csv
-│       ├── 08_investor_transactions_clean.csv
-│       ├── 09_portfolio_holdings_clean.csv
-│       └── 10_benchmark_indices_clean.csv
-│
-├── notebooks/
-│   └── EDA_Analysis.ipynb
-│
-├── sql/
-│   ├── schema.sql
-│   └── queries.sql
-│
-├── dashboard/
-│
-├── reports/
-│   ├── charts/
-│   │   ├── 01_nav_trend_all_schemes.png
-│   │   ├── 02_normalized_nav_index.png
-│   │   ├── 03_annual_nav_return_heatmap.png
-│   │   ├── 04_aum_growth_grouped_bar.png
-│   │   ├── 05_aum_ranking_2025.png
-│   │   ├── 06_sip_inflow_timeseries.html
-│   │   ├── 07_sip_rolling_average.png
-│   │   ├── 08_category_inflow_heatmap.png
-│   │   ├── 09_age_group_distribution_pie.png
-│   │   ├── 10_sip_amount_boxplot_age_group.png
-│   │   ├── 11_gender_split_bar.png
-│   │   ├── 12_sip_amount_by_state.png
-│   │   ├── 13_t30_b30_city_tier_pie.png
-│   │   ├── 14_folio_count_growth.html
-│   │   ├── 15_nav_return_correlation_matrix.png
-│   │   ├── 16_sector_allocation_donut.png
-│   │   ├── 17_nav_volatility_by_fund.png
-│   │   └── 18_category_inflow_area_trend.png
-│   │
-│   ├── data_dictionary.md
-│   ├── data_ingestion_summary.csv
-│   ├── data_quality_summary.txt
-│   ├── scheme_code_validation.csv
-│   ├── live_nav_metadata.csv
-│   └── live_nav_failed_requests.csv
-│
-├── bluestock_mf.db
-├── data_ingestion.py
-├── live_nav_fetch.py
-├── data_cleaning.py
-├── load_database.py
-├── requirements.txt
-└── README.md
-```
+* Created folio count growth chart
+* Computed NAV daily return correlation matrix
+* Created sector allocation donut chart
+* Created NAV volatility analysis
+* Exported PNG and HTML charts
 
 ---
 
 ## 📊 EDA Charts Generated
 
-| No. | Chart Name                    | Description                                                 |
-| --- | ----------------------------- | ----------------------------------------------------------- |
-| 1   | Daily NAV Trend               | Shows NAV movement of mutual fund schemes from 2022–2026    |
-| 2   | Normalized NAV Index          | Compares fund performance by indexing NAV values to 100     |
-| 3   | Annual NAV Return Heatmap     | Shows yearly return performance by fund                     |
-| 4   | AUM Growth Grouped Bar        | Compares fund-house AUM growth from 2022–2025               |
-| 5   | 2025 AUM Ranking              | Ranks top fund houses by AUM in 2025                        |
-| 6   | SIP Inflow Time Series        | Shows monthly SIP inflow trend with Dec 2025 ATH annotation |
-| 7   | SIP Rolling Average           | Shows 3-month rolling average of SIP inflows                |
-| 8   | Category Inflow Heatmap       | Shows category-wise net inflow intensity by month           |
-| 9   | Age Group Distribution        | Shows investor age group distribution                       |
-| 10  | SIP Amount Box Plot           | Compares SIP amount distribution across age groups          |
-| 11  | Gender Split                  | Shows investor distribution by gender                       |
-| 12  | SIP Amount by State           | Shows geographic SIP contribution by state                  |
-| 13  | T30 vs B30 Pie Chart          | Shows investor distribution by city tier                    |
-| 14  | Folio Count Growth            | Shows growth from 13.26 Cr to 26.12 Cr folios               |
-| 15  | NAV Return Correlation Matrix | Shows pairwise return correlation between selected funds    |
-| 16  | Sector Allocation Donut       | Shows aggregate sector allocation from portfolio holdings   |
-| 17  | NAV Volatility by Fund        | Shows annualized NAV volatility by fund                     |
-| 18  | Category Inflow Area Trend    | Shows category-wise inflow trend over time                  |
-
----
-
-## 📈 Key EDA Findings
-
-* NAV trends showed visible growth during the 2023 bull run and variation during 2024 correction periods.
-* Normalized NAV index helped compare funds fairly despite different original NAV levels.
-* Annual NAV return heatmap highlighted funds with stronger and weaker yearly performance.
-* AUM analysis showed clear dominance of leading fund houses, especially SBI Mutual Fund.
-* SIP inflows showed strong investor participation and reached an all-time high of ₹31,002 Cr in Dec 2025.
-* Category inflow heatmap showed changing investor preference across fund categories.
-* Investor demographics showed useful distribution patterns by age group and gender.
-* SIP amount box plot helped compare investment behavior across age groups.
-* Geographic analysis showed state-wise SIP participation and T30/B30 distribution.
-* Folio count grew from 13.26 Cr in Jan 2022 to 26.12 Cr in Dec 2025.
-* NAV return correlation matrix helped identify similarity between selected funds.
-* Sector allocation donut chart showed major sector exposure across equity fund holdings.
-* NAV volatility analysis identified funds with higher fluctuation risk.
-
----
-
-## 📂 Exported Chart Files
-
-All generated charts are saved in:
+All EDA charts are saved in:
 
 ```text
 reports/charts/
 ```
 
-The folder contains PNG charts and interactive HTML files generated from Plotly visualizations.
+Important chart outputs include:
+
+| Chart File                             | Description               |
+| -------------------------------------- | ------------------------- |
+| `01_nav_trend_all_schemes.png`         | Daily NAV trend           |
+| `02_normalized_nav_index.png`          | Normalized NAV comparison |
+| `03_annual_nav_return_heatmap.png`     | Annual return heatmap     |
+| `04_aum_growth_grouped_bar.png`        | AUM growth by fund house  |
+| `05_aum_ranking_2025.png`              | AUM ranking               |
+| `06_sip_inflow_timeseries.html`        | SIP inflow trend          |
+| `08_category_inflow_heatmap.png`       | Category inflow heatmap   |
+| `12_sip_amount_by_state.png`           | SIP amount by state       |
+| `15_nav_return_correlation_matrix.png` | NAV return correlation    |
+| `16_sector_allocation_donut.png`       | Sector allocation         |
+| `17_nav_volatility_by_fund.png`        | NAV volatility            |
 
 ---
 
-## 🛠️ Tools and Libraries Used
+# 📅 Task 4: Fund Performance Analytics
 
-| Tool / Library   | Purpose                                 |
-| ---------------- | --------------------------------------- |
-| Python           | Core programming language               |
-| Pandas           | Data analysis and transformation        |
-| NumPy            | Numerical calculations                  |
-| Matplotlib       | Static chart generation                 |
-| Seaborn          | Statistical visualizations and heatmaps |
-| Plotly           | Interactive charts                      |
-| Kaleido          | Plotly image export                     |
-| Jupyter Notebook | EDA notebook development                |
+## ✅ Completed
 
----
-
-## ▶️ Run Task 3 Notebook
-
-Open Jupyter Notebook:
-
-```bash
-python -m notebook
-```
-
-Then open:
-
-```text
-notebooks/EDA_Analysis.ipynb
-```
-
-Run all notebook cells:
-
-```text
-Kernel → Restart Kernel and Run All Cells
-```
-
----
-
-## 📦 Task 3 Deliverables
-
-| Deliverable               | Location                                   |
-| ------------------------- | ------------------------------------------ |
-| EDA Notebook              | `notebooks/EDA_Analysis.ipynb`             |
-| Exported Charts           | `reports/charts/`                          |
-| PNG Chart Files           | `reports/charts/*.png`                     |
-| Interactive Plotly Charts | `reports/charts/*.html`                    |
-| EDA Findings              | Markdown cells inside `EDA_Analysis.ipynb` |
-
----
-
-## 🧾 Task 3 Git Commit
-
-```bash
-git add .
-git commit -m "Task 3: Complete EDA analysis with exported charts"
-git push
-```
-
----
-
-## ✅ Task 3 Status
-
-Task 3 Completed Successfully.
-
----
-
-
-# 📅 Task 4 : Fund Performance Analytics
-
-## ✅ Completed Tasks
-
-* Created `Performance_Analytics.ipynb` notebook
-* Loaded cleaned NAV history from `data/processed/02_nav_history_clean.csv`
-* Loaded fund master data from `data/processed/01_fund_master_clean.csv`
-* Merged NAV data with fund master data using `amfi_code`
-* Loaded benchmark index data from `data/processed/10_benchmark_indices_clean.csv`
-* Converted benchmark data from long format into Nifty 50 and Nifty 100 columns
-* Computed daily returns for all 40 mutual fund schemes
-* Validated daily return distribution using histogram
-* Calculated CAGR for 1-year, 3-year, and 5-year periods
+* Created performance notebook: `notebooks/04_performance_analytics.ipynb`
+* Computed daily returns for all 40 schemes
+* Calculated 1-year, 3-year, and 5-year CAGR
 * Computed Sharpe Ratio using 6.5% risk-free rate
 * Computed Sortino Ratio using downside deviation
 * Calculated Alpha and Beta using Nifty 100 benchmark returns
-* Computed R-squared values for regression analysis
-* Calculated Maximum Drawdown for each fund
-* Identified worst drawdown start and end dates
-* Created Fund Scorecard using weighted composite ranking
-* Ranked all 40 funds on a 0–100 score scale
-* Selected top 5 funds based on composite fund score
-* Created benchmark comparison chart for top 5 funds vs Nifty 50 and Nifty 100
-* Calculated tracking error against Nifty 50 and Nifty 100
-* Exported performance CSV files and PNG charts for final submission
+* Computed R-squared values
+* Calculated Maximum Drawdown
+* Created fund scorecard
+* Ranked all 40 funds using a weighted composite score
+* Compared top 5 funds against Nifty 50 and Nifty 100
+* Calculated tracking error
+* Exported CSV files and charts
 
 ---
 
-## 📁 Task 4 : Updated Project Structure
-
-```text
-mutual-fund-analytics/
-├── data/
-│   ├── raw/
-│   └── processed/
-│       ├── 01_fund_master_clean.csv
-│       ├── 02_nav_history_clean.csv
-│       ├── 03_aum_by_fund_house_clean.csv
-│       ├── 04_monthly_sip_inflows_clean.csv
-│       ├── 05_category_inflows_clean.csv
-│       ├── 06_industry_folio_count_clean.csv
-│       ├── 07_scheme_performance_clean.csv
-│       ├── 08_investor_transactions_clean.csv
-│       ├── 09_portfolio_holdings_clean.csv
-│       └── 10_benchmark_indices_clean.csv
-│
-├── notebooks/
-│   ├── EDA_Analysis.ipynb
-│   └── Performance_Analytics.ipynb
-│
-├── sql/
-│   ├── schema.sql
-│   └── queries.sql
-│
-├── dashboard/
-│
-├── reports/
-│   ├── charts/
-│   │   ├── benchmark_comparison_top5.png
-│   │   └── daily_return_distribution.png
-│   │
-│   ├── performance/
-│   │   ├── alpha_beta.csv
-│   │   ├── fund_scorecard.csv
-│   │   ├── performance_summary.csv
-│   │   └── tracking_error_top5.csv
-│   │
-│   ├── data_dictionary.md
-│   ├── data_ingestion_summary.csv
-│   ├── data_quality_summary.txt
-│   ├── scheme_code_validation.csv
-│   ├── live_nav_metadata.csv
-│   └── live_nav_failed_requests.csv
-│
-├── bluestock_mf.db
-├── data_ingestion.py
-├── live_nav_fetch.py
-├── data_cleaning.py
-├── load_database.py
-├── requirements.txt
-└── README.md
-```
-
----
-
-## 📊 Performance Metrics Implemented
-
-| Metric           | Description                                                            |
-| ---------------- | ---------------------------------------------------------------------- |
-| Daily Returns    | Calculated day-to-day NAV percentage change for each scheme            |
-| CAGR             | Computed 1-year, 3-year, and 5-year compounded annual growth rate      |
-| Sharpe Ratio     | Measured risk-adjusted return using total volatility                   |
-| Sortino Ratio    | Measured risk-adjusted return using downside volatility                |
-| Alpha            | Calculated excess return over Nifty 100 benchmark using OLS regression |
-| Beta             | Measured fund sensitivity against Nifty 100 benchmark returns          |
-| R-squared        | Measured regression fit between fund returns and benchmark returns     |
-| Maximum Drawdown | Identified largest peak-to-trough NAV decline                          |
-| Tracking Error   | Measured deviation of fund returns from benchmark returns              |
-| Fund Scorecard   | Ranked all funds using weighted composite scoring                      |
-
----
-
-## 🧮 Key Formulas Used
+## 🧮 Key Performance Formulas
 
 ### Daily Returns
 
@@ -748,12 +436,6 @@ CAGR = (NAV_end / NAV_start) ^ (1 / years) - 1
 Sharpe Ratio = ((Average Daily Return - Daily Risk-Free Rate) / Standard Deviation) × √252
 ```
 
-Risk-free rate used:
-
-```text
-6.5%
-```
-
 ### Sortino Ratio
 
 ```text
@@ -761,8 +443,6 @@ Sortino Ratio = ((Average Daily Return - Daily Risk-Free Rate) / Downside Deviat
 ```
 
 ### Alpha and Beta
-
-Alpha and Beta were calculated using OLS regression against Nifty 100 daily returns.
 
 ```text
 Beta = Regression slope
@@ -783,250 +463,76 @@ Tracking Error = Standard Deviation(Fund Return - Benchmark Return) × √252
 
 ---
 
-## 🏆 Fund Scorecard Methodology
+## 📊 Performance Outputs
 
-The final fund score was calculated on a 0–100 scale using weighted percentile ranks.
+Files are saved in:
 
 ```text
-Fund Score =
-30% × 3-Year Return Rank
-+ 25% × Sharpe Ratio Rank
-+ 20% × Alpha Rank
-+ 15% × Expense Ratio Rank Inverse
-+ 10% × Maximum Drawdown Rank Inverse
+reports/performance/
 ```
 
-Higher score indicates stronger overall performance based on return, risk-adjusted performance, alpha generation, cost efficiency, and drawdown control.
+| File                      | Description                                 |
+| ------------------------- | ------------------------------------------- |
+| `alpha_beta.csv`          | Alpha, beta, and R-squared metrics          |
+| `fund_scorecard.csv`      | Composite fund ranking                      |
+| `performance_summary.csv` | CAGR, Sharpe, Sortino, and drawdown summary |
+| `tracking_error_top5.csv` | Tracking error for top funds                |
 
 ---
 
-## 🔝 Top 5 Funds by Composite Score
+## 🏆 Top 5 Funds by Composite Score
 
 | Rank | Fund Name                                     |
-| ---- | --------------------------------------------- |
-| 1    | Kotak Flexicap Fund - Regular - Growth        |
-| 2    | ICICI Pru Midcap Fund - Regular - Growth      |
-| 3    | Mirae Asset Large Cap Fund - Regular - Growth |
-| 4    | Axis Midcap Fund - Regular - Growth           |
-| 5    | DSP Small Cap Fund - Regular - Growth         |
+| ---: | --------------------------------------------- |
+|    1 | Kotak Flexicap Fund - Regular - Growth        |
+|    2 | ICICI Pru Midcap Fund - Regular - Growth      |
+|    3 | Mirae Asset Large Cap Fund - Regular - Growth |
+|    4 | Axis Midcap Fund - Regular - Growth           |
+|    5 | DSP Small Cap Fund - Regular - Growth         |
 
 ---
-
-## 📈 Task 4 :Charts Generated
-
-| Chart File                      | Description                                                      |
-| ------------------------------- | ---------------------------------------------------------------- |
-| `benchmark_comparison_top5.png` | Compares top 5 funds against Nifty 50 and Nifty 100 over 3 years |
-| `daily_return_distribution.png` | Shows daily return distribution across all mutual fund schemes   |
-
----
-
-## 📦 Task 4 :Deliverables
-
-| Deliverable                     | Location                                       |
-| ------------------------------- | ---------------------------------------------- |
-| Performance Analytics Notebook  | `notebooks/Performance_Analytics.ipynb`        |
-| Fund Scorecard                  | `reports/performance/fund_scorecard.csv`       |
-| Alpha and Beta Output           | `reports/performance/alpha_beta.csv`           |
-| Tracking Error Output           | `reports/performance/tracking_error_top5.csv`  |
-| Performance Summary             | `reports/performance/performance_summary.csv`  |
-| Benchmark Comparison Chart      | `reports/charts/benchmark_comparison_top5.png` |
-| Daily Return Distribution Chart | `reports/charts/daily_return_distribution.png` |
-
----
-
-## 📌 Key Performance Findings
-
-* All 40 mutual fund schemes were analyzed using historical NAV data.
-* Daily return distribution was generated and validated for reasonableness.
-* CAGR comparison helped identify funds with stronger long-term growth.
-* Sharpe and Sortino ratios helped compare risk-adjusted fund performance.
-* Alpha and Beta analysis measured performance relative to Nifty 100 benchmark.
-* Maximum Drawdown analysis identified funds with higher downside risk.
-* Composite scorecard ranked funds using return, risk, alpha, expense ratio, and drawdown metrics.
-* Top 5 funds were compared against Nifty 50 and Nifty 100 using a normalized benchmark chart.
-* Tracking error was calculated to measure fund deviation from benchmark returns.
-
----
-
-## ⚠️ Data Note
-
-The dataset appears to be academic/simulated and contains NAV values beyond the current date. All calculations were performed consistently for analytics, ranking, and comparison purposes.
-
----
-
-## ▶️ Run Task 4 :Notebook
-
-Open Jupyter Notebook:
-
-```bash
-python -m notebook
-```
-
-Then open:
-
-```text
-notebooks/Performance_Analytics.ipynb
-```
-
-Run all notebook cells:
-
-```text
-Kernel → Restart Kernel and Run All Cells
-```
-
----
-
-## 📦 Task 4 :Deliverables Summary
-
-| Required File                   | Status    |
-| ------------------------------- | --------- |
-| `Performance_Analytics.ipynb`   | Completed |
-| `fund_scorecard.csv`            | Completed |
-| `alpha_beta.csv`                | Completed |
-| `benchmark_comparison_top5.png` | Completed |
-| `tracking_error_top5.csv`       | Completed |
-| `performance_summary.csv`       | Completed |
-| `daily_return_distribution.png` | Completed |
-
----
-
-## 🧾 Task 4 :Git Commit
-
-```bash
-git add notebooks/Performance_Analytics.ipynb
-git add reports/performance/alpha_beta.csv
-git add reports/performance/fund_scorecard.csv
-git add reports/performance/performance_summary.csv
-git add reports/performance/tracking_error_top5.csv
-git add reports/charts/benchmark_comparison_top5.png
-git add reports/charts/daily_return_distribution.png
-git add README.md
-git commit -m "Day 4: Fund performance analytics complete"
-git push
-```
-
----
-
-## ✅ Task 4 :Status
- Task 4 :Completed Successfully.
-
----
-
 
 # 📅 Task 5: Advanced Analytics + Risk Metrics
 
-## ✅ Completed Tasks
+## ✅ Completed
 
-* Created `Advanced_Analytics.ipynb` notebook
-* Loaded cleaned NAV history, fund master, investor transactions, and portfolio holdings datasets
-* Computed daily returns for all 40 mutual fund schemes
-* Calculated Historical Value at Risk `VaR 95%` using the 5th percentile of daily returns
-* Calculated Conditional Value at Risk `CVaR 95%` using the average of returns below the VaR threshold
-* Generated `var_cvar_report.csv` for all 40 schemes
-* Computed annualized volatility and Sharpe ratio for risk-based fund comparison
+* Created advanced analytics notebook: `notebooks/05_advanced_analytics.ipynb`
+* Computed daily returns for all 40 schemes
+* Calculated Historical VaR 95%
+* Calculated Conditional VaR 95%
+* Generated `var_cvar_report.csv`
+* Computed annualized volatility
 * Created Rolling 90-day Sharpe Ratio analysis
-* Plotted Rolling 90-day Sharpe Ratio chart for 5 key funds
-* Saved rolling Sharpe visualization as `rolling_sharpe_chart.png`
-* Performed investor cohort analysis based on first transaction year
-* Calculated average SIP amount, total invested amount, number of investors, and top fund preference per cohort
-* Performed SIP continuity analysis for investors with 6 or more SIP transactions
-* Calculated average transaction gap between SIP dates
-* Flagged investors with average gap greater than 35 days as `At-risk`
-* Built a simple risk-based fund recommender using Sharpe ratio and risk grade
-* Created `recommender.py` script for Low, Moderate, and High risk appetite recommendations
-* Tested recommender successfully for all 3 risk levels
-* Calculated Sector HHI concentration using portfolio sector weights
-* Compared concentration levels across equity fund portfolios
-* Created 5 advanced insights in Jupyter Markdown
-* Exported all required advanced analytics CSV reports and chart files
-* Committed and pushed Task 5 work to GitHub
+* Saved rolling Sharpe chart
+* Performed investor cohort analysis
+* Performed SIP continuity analysis
+* Built risk-based fund recommender
+* Created `scripts/recommender.py`
+* Calculated Sector HHI concentration
+* Created advanced insights markdown file
+* Exported advanced analytics CSV reports
 
 ---
 
-## 📁 Task 5 Updated Project Structure
+## 📊 Advanced Analytics Outputs
+
+Files are saved in:
 
 ```text
-mutual-fund-analytics/
-├── data/
-│   ├── raw/
-│   └── processed/
-│       ├── 01_fund_master_clean.csv
-│       ├── 02_nav_history_clean.csv
-│       ├── 03_aum_by_fund_house_clean.csv
-│       ├── 04_monthly_sip_inflows_clean.csv
-│       ├── 05_category_inflows_clean.csv
-│       ├── 06_industry_folio_count_clean.csv
-│       ├── 07_scheme_performance_clean.csv
-│       ├── 08_investor_transactions_clean.csv
-│       ├── 09_portfolio_holdings_clean.csv
-│       └── 10_benchmark_indices_clean.csv
-│
-├── notebooks/
-│   ├── EDA_Analysis.ipynb
-│   ├── Performance_Analytics.ipynb
-│   └── Advanced_Analytics.ipynb
-│
-├── sql/
-│   ├── schema.sql
-│   └── queries.sql
-│
-├── dashboard/
-│
-├── reports/
-│   ├── charts/
-│   │   ├── benchmark_comparison_top5.png
-│   │   ├── daily_return_distribution.png
-│   │   └── rolling_sharpe_chart.png
-│   │
-│   ├── performance/
-│   │   ├── alpha_beta.csv
-│   │   ├── fund_scorecard.csv
-│   │   ├── performance_summary.csv
-│   │   └── tracking_error_top5.csv
-│   │
-│   ├── advanced_analytics/
-│   │   ├── advanced_insights.md
-│   │   ├── investor_cohort_analysis.csv
-│   │   ├── sector_hhi_concentration.csv
-│   │   ├── sip_continuity_report.csv
-│   │   └── var_cvar_report.csv
-│   │
-│   ├── data_dictionary.md
-│   ├── data_ingestion_summary.csv
-│   ├── data_quality_summary.txt
-│   ├── scheme_code_validation.csv
-│   ├── live_nav_metadata.csv
-│   └── live_nav_failed_requests.csv
-│
-├── bluestock_mf.db
-├── data_ingestion.py
-├── live_nav_fetch.py
-├── data_cleaning.py
-├── load_database.py
-├── recommender.py
-├── requirements.txt
-└── README.md
+reports/advanced_analytics/
 ```
 
----
-
-## 📊 Advanced Risk Metrics Implemented
-
-| Metric / Analysis        | Description                                                                      |
-| ------------------------ | -------------------------------------------------------------------------------- |
-| Historical VaR 95%       | Measures the 5th percentile downside daily return risk                           |
-| CVaR 95%                 | Measures average loss during worst 5% return days                                |
-| Rolling 90-day Sharpe    | Tracks changing risk-adjusted performance over time                              |
-| Investor Cohort Analysis | Groups investors by first transaction year and analyzes investment behavior      |
-| SIP Continuity Analysis  | Identifies investors with consistent SIP activity and flags at-risk investors    |
-| Fund Recommender         | Recommends top 3 funds based on risk appetite and Sharpe ratio                   |
-| Sector HHI               | Measures portfolio concentration using sector allocation weights                 |
-| Advanced Insights        | Summarizes key findings from VaR, CVaR, cohorts, SIP continuity, and HHI results |
+| File                           | Description                          |
+| ------------------------------ | ------------------------------------ |
+| `var_cvar_report.csv`          | VaR and CVaR report for all schemes  |
+| `investor_cohort_analysis.csv` | Investor cohort analysis             |
+| `sip_continuity_report.csv`    | SIP continuity and at-risk investors |
+| `sector_hhi_concentration.csv` | Sector concentration using HHI       |
+| `advanced_insights.md`         | Key advanced analytics findings      |
 
 ---
 
-## 🧮 Key Formulas Used
+## 🧮 Advanced Risk Formulas
 
 ### Historical VaR 95%
 
@@ -1046,181 +552,193 @@ CVaR 95% = Mean of returns below VaR threshold
 Rolling Sharpe = returns.rolling(90).mean() / returns.rolling(90).std() × √252
 ```
 
-### SIP Gap Analysis
-
-```text
-Average Gap = Average difference between investor SIP transaction dates
-```
-
-At-risk condition:
-
-```text
-Average Gap > 35 days
-```
-
-### Sector HHI Concentration
+### Sector HHI
 
 ```text
 HHI = Σ(weight_i²)
 ```
 
-Higher HHI indicates a more concentrated portfolio, while lower HHI indicates better diversification.
+Higher HHI indicates higher portfolio concentration.
 
 ---
 
 ## 🤖 Fund Recommender
 
-Created:
-
-```text
-recommender.py
-```
-
-The recommender takes investor risk appetite as input:
-
-```text
-Low / Moderate / High
-```
-
-It recommends the top 3 funds by Sharpe ratio within the matching risk grade.
-
----
-
-## ▶️ Run Fund Recommender
+The recommender suggests top funds based on investor risk appetite.
 
 Run from project root:
 
 ```bash
-python recommender.py --risk Low
-python recommender.py --risk Moderate
-python recommender.py --risk High
+python scripts/recommender.py --risk Low
+python scripts/recommender.py --risk Moderate
+python scripts/recommender.py --risk High
 ```
-
----
-
-## 🔝 Recommender Output Summary
 
 ### Low Risk Recommendations
 
 | Rank | Fund Name                                |
-| ---- | ---------------------------------------- |
-| 1    | ICICI Pru Liquid Fund - Regular - Growth |
-| 2    | Kotak Liquid Fund - Regular - Growth     |
-| 3    | ABSL Liquid Fund - Regular - Growth      |
+| ---: | ---------------------------------------- |
+|    1 | ICICI Pru Liquid Fund - Regular - Growth |
+|    2 | Kotak Liquid Fund - Regular - Growth     |
+|    3 | ABSL Liquid Fund - Regular - Growth      |
 
 ### Moderate Risk Recommendations
 
 | Rank | Fund Name                                      |
-| ---- | ---------------------------------------------- |
-| 1    | Mirae Asset Large Cap Fund - Regular - Growth  |
-| 2    | SBI Bluechip Fund - Regular Plan - Growth      |
-| 3    | Nippon India Large Cap Fund - Regular - Growth |
+| ---: | ---------------------------------------------- |
+|    1 | Mirae Asset Large Cap Fund - Regular - Growth  |
+|    2 | SBI Bluechip Fund - Regular Plan - Growth      |
+|    3 | Nippon India Large Cap Fund - Regular - Growth |
 
 ### High Risk Recommendations
 
 | Rank | Fund Name                                |
-| ---- | ---------------------------------------- |
-| 1    | ICICI Pru Midcap Fund - Regular - Growth |
-| 2    | DSP Midcap Fund - Regular - Growth       |
-| 3    | Axis Midcap Fund - Regular - Growth      |
+| ---: | ---------------------------------------- |
+|    1 | ICICI Pru Midcap Fund - Regular - Growth |
+|    2 | DSP Midcap Fund - Regular - Growth       |
+|    3 | Axis Midcap Fund - Regular - Growth      |
 
 ---
 
-## 📈 Task 5 Charts Generated
+## 📈 Charts Generated
 
-| Chart File                 | Description                                             |
-| -------------------------- | ------------------------------------------------------- |
-| `rolling_sharpe_chart.png` | Shows Rolling 90-day Sharpe Ratio trend for 5 key funds |
-
----
-
-## 📦 Task 5 Deliverables
-
-| Deliverable                 | Location                                                  |
-| --------------------------- | --------------------------------------------------------- |
-| Advanced Analytics Notebook | `notebooks/Advanced_Analytics.ipynb`                      |
-| VaR and CVaR Report         | `reports/advanced_analytics/var_cvar_report.csv`          |
-| Fund Recommender Script     | `recommender.py`                                          |
-| Rolling Sharpe Chart        | `reports/charts/rolling_sharpe_chart.png`                 |
-| Investor Cohort Report      | `reports/advanced_analytics/investor_cohort_analysis.csv` |
-| SIP Continuity Report       | `reports/advanced_analytics/sip_continuity_report.csv`    |
-| Sector HHI Report           | `reports/advanced_analytics/sector_hhi_concentration.csv` |
-| Advanced Insights Markdown  | `reports/advanced_analytics/advanced_insights.md`         |
-
----
-
-## 📌 Key Advanced Analytics Findings
-
-* Historical VaR and CVaR helped identify funds with higher downside risk.
-* CVaR provided a stronger tail-risk view by measuring average losses during extreme negative return periods.
-* Rolling 90-day Sharpe Ratio showed how fund risk-adjusted performance changed over time.
-* Investor cohort analysis identified which investor groups contributed the highest total investment.
-* SIP continuity analysis helped flag investors whose SIP behavior showed possible discontinuity risk.
-* Risk-based recommender successfully generated top 3 fund recommendations for Low, Moderate, and High risk appetite.
-* Sector HHI concentration analysis measured diversification versus concentration across equity fund portfolios.
-* The advanced insights file summarized the most important business findings from the analysis.
-
----
-
-## ⚠️ Data Note
-
-The dataset appears to be academic/simulated and may contain generated NAV, investor transaction, and portfolio allocation values. All calculations were performed consistently for analytics, ranking, risk comparison, and recommendation purposes.
-
----
-
-## ▶️ Run Task 5 Notebook
-
-Open Jupyter Notebook:
-
-```bash
-python -m notebook
-```
-
-Then open:
+All charts are saved in:
 
 ```text
-notebooks/Advanced_Analytics.ipynb
+reports/charts/
 ```
 
-Run all notebook cells:
+Important chart files:
+
+| Chart File                      | Description                           |
+| ------------------------------- | ------------------------------------- |
+| `benchmark_comparison_top5.png` | Top 5 funds vs Nifty 50 and Nifty 100 |
+| `daily_return_distribution.png` | Daily return distribution             |
+| `rolling_sharpe_chart.png`      | Rolling 90-day Sharpe Ratio           |
+
+---
+
+## 📊 Dashboard Status
+
+Dashboard deliverable:
 
 ```text
-Kernel → Restart Kernel and Run All Cells
+dashboard/bluestock_mf.pbix
+```
+
+Dashboard pages planned:
+
+1. Industry Overview
+2. Fund Performance
+3. Investor Insights
+4. Risk & Advanced Analytics
+
+Each dashboard page should include at least two slicers such as:
+
+* Year
+* Fund House
+* Category
+* Scheme Name
+* Risk Level
+* State
+* Age Group
+
+---
+
+## 📄 Final Report and Presentation Status
+
+Final report:
+
+```text
+reports/Final_Report.pdf
+```
+
+Presentation:
+
+```text
+reports/Presentation.pptx
+```
+
+Recommended report sections:
+
+1. Project Title
+2. Objective
+3. Dataset Overview
+4. ETL Pipeline
+5. SQLite Database
+6. EDA Insights
+7. Performance Analytics
+8. Advanced Analytics
+9. Dashboard Screenshots
+10. Key Findings
+11. Conclusion
+
+Recommended presentation slides:
+
+1. Title
+2. Objective
+3. Dataset Overview
+4. ETL Pipeline
+5. EDA Insights
+6. Performance Metrics
+7. Advanced Analytics
+8. Dashboard Preview
+9. Key Findings
+10. Thank You
+
+---
+
+## ⚠️ Important Repository Note
+
+SQLite database files are excluded from GitHub using `.gitignore`.
+
+```gitignore
+*.db
+data/db/*.db
+__pycache__/
+.ipynb_checkpoints/
+venv/
+.env
+scripts/data/
+scripts/reports/
+```
+
+The database file should be uploaded to Google Drive only:
+
+```text
+data/db/bluestock_mf.db
 ```
 
 ---
 
-## 📦 Task 5 Deliverables Summary
+## 🔗 Repository
 
-| Required File                  | Status    |
-| ------------------------------ | --------- |
-| `Advanced_Analytics.ipynb`     | Completed |
-| `var_cvar_report.csv`          | Completed |
-| `recommender.py`               | Completed |
-| `rolling_sharpe_chart.png`     | Completed |
-| `investor_cohort_analysis.csv` | Completed |
-| `sip_continuity_report.csv`    | Completed |
-| `sector_hhi_concentration.csv` | Completed |
-| `advanced_insights.md`         | Completed |
-
----
-
-## 🧾 Task 5 Git Commit
-
-```bash
-git add notebooks/Advanced_Analytics.ipynb
-git add recommender.py
-git add reports/advanced_analytics/
-git add reports/charts/rolling_sharpe_chart.png
-git add README.md
-git commit -m "Day 5: Advanced analytics and risk metrics"
-git push
+```text
+https://github.com/bellana-upendra/mutual-fund-analytics
 ```
 
 ---
 
-## ✅ Task 5 Status
+## 👤 Author
 
-Task 5 Completed Successfully.
+**Bellana Upendra**
+B.Tech CSE - Artificial Intelligence and Machine Learning
+GitHub: [bellana-upendra](https://github.com/bellana-upendra)
+
+---
+
+## ✅ Current Status
+
+**Task 1 Completed**
+**Task 2 Completed**
+**Task 3 Completed**
+**Task 4 Completed**
+**Task 5 Completed**
+
+Remaining final submission items:
+
+* `dashboard/bluestock_mf.pbix`
+* `reports/Final_Report.pdf`
+* `reports/Presentation.pptx`
 
 ---
