@@ -3,8 +3,8 @@
 ![Python](https://img.shields.io/badge/Python-3.x-blue)
 ![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-green)
 ![ETL](https://img.shields.io/badge/ETL-Data%20Ingestion-orange)
-![Status](https://img.shields.io/badge/Status-Day%201%20Completed-brightgreen)
 ![GitHub](https://img.shields.io/badge/GitHub-Repository-black)
+![Status](https://img.shields.io/badge/Status-Day%205%20Completed-brightgreen)
 
 ## 🚀 Project Overview
 
@@ -910,5 +910,317 @@ git push
 
 ## ✅ Task 4 :Status
  Task 4 :Completed Successfully.
+
+---
+
+
+# 📅 Task 5: Advanced Analytics + Risk Metrics
+
+## ✅ Completed Tasks
+
+* Created `Advanced_Analytics.ipynb` notebook
+* Loaded cleaned NAV history, fund master, investor transactions, and portfolio holdings datasets
+* Computed daily returns for all 40 mutual fund schemes
+* Calculated Historical Value at Risk `VaR 95%` using the 5th percentile of daily returns
+* Calculated Conditional Value at Risk `CVaR 95%` using the average of returns below the VaR threshold
+* Generated `var_cvar_report.csv` for all 40 schemes
+* Computed annualized volatility and Sharpe ratio for risk-based fund comparison
+* Created Rolling 90-day Sharpe Ratio analysis
+* Plotted Rolling 90-day Sharpe Ratio chart for 5 key funds
+* Saved rolling Sharpe visualization as `rolling_sharpe_chart.png`
+* Performed investor cohort analysis based on first transaction year
+* Calculated average SIP amount, total invested amount, number of investors, and top fund preference per cohort
+* Performed SIP continuity analysis for investors with 6 or more SIP transactions
+* Calculated average transaction gap between SIP dates
+* Flagged investors with average gap greater than 35 days as `At-risk`
+* Built a simple risk-based fund recommender using Sharpe ratio and risk grade
+* Created `recommender.py` script for Low, Moderate, and High risk appetite recommendations
+* Tested recommender successfully for all 3 risk levels
+* Calculated Sector HHI concentration using portfolio sector weights
+* Compared concentration levels across equity fund portfolios
+* Created 5 advanced insights in Jupyter Markdown
+* Exported all required advanced analytics CSV reports and chart files
+* Committed and pushed Task 5 work to GitHub
+
+---
+
+## 📁 Task 5 Updated Project Structure
+
+```text
+mutual-fund-analytics/
+├── data/
+│   ├── raw/
+│   └── processed/
+│       ├── 01_fund_master_clean.csv
+│       ├── 02_nav_history_clean.csv
+│       ├── 03_aum_by_fund_house_clean.csv
+│       ├── 04_monthly_sip_inflows_clean.csv
+│       ├── 05_category_inflows_clean.csv
+│       ├── 06_industry_folio_count_clean.csv
+│       ├── 07_scheme_performance_clean.csv
+│       ├── 08_investor_transactions_clean.csv
+│       ├── 09_portfolio_holdings_clean.csv
+│       └── 10_benchmark_indices_clean.csv
+│
+├── notebooks/
+│   ├── EDA_Analysis.ipynb
+│   ├── Performance_Analytics.ipynb
+│   └── Advanced_Analytics.ipynb
+│
+├── sql/
+│   ├── schema.sql
+│   └── queries.sql
+│
+├── dashboard/
+│
+├── reports/
+│   ├── charts/
+│   │   ├── benchmark_comparison_top5.png
+│   │   ├── daily_return_distribution.png
+│   │   └── rolling_sharpe_chart.png
+│   │
+│   ├── performance/
+│   │   ├── alpha_beta.csv
+│   │   ├── fund_scorecard.csv
+│   │   ├── performance_summary.csv
+│   │   └── tracking_error_top5.csv
+│   │
+│   ├── advanced_analytics/
+│   │   ├── advanced_insights.md
+│   │   ├── investor_cohort_analysis.csv
+│   │   ├── sector_hhi_concentration.csv
+│   │   ├── sip_continuity_report.csv
+│   │   └── var_cvar_report.csv
+│   │
+│   ├── data_dictionary.md
+│   ├── data_ingestion_summary.csv
+│   ├── data_quality_summary.txt
+│   ├── scheme_code_validation.csv
+│   ├── live_nav_metadata.csv
+│   └── live_nav_failed_requests.csv
+│
+├── bluestock_mf.db
+├── data_ingestion.py
+├── live_nav_fetch.py
+├── data_cleaning.py
+├── load_database.py
+├── recommender.py
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## 📊 Advanced Risk Metrics Implemented
+
+| Metric / Analysis        | Description                                                                      |
+| ------------------------ | -------------------------------------------------------------------------------- |
+| Historical VaR 95%       | Measures the 5th percentile downside daily return risk                           |
+| CVaR 95%                 | Measures average loss during worst 5% return days                                |
+| Rolling 90-day Sharpe    | Tracks changing risk-adjusted performance over time                              |
+| Investor Cohort Analysis | Groups investors by first transaction year and analyzes investment behavior      |
+| SIP Continuity Analysis  | Identifies investors with consistent SIP activity and flags at-risk investors    |
+| Fund Recommender         | Recommends top 3 funds based on risk appetite and Sharpe ratio                   |
+| Sector HHI               | Measures portfolio concentration using sector allocation weights                 |
+| Advanced Insights        | Summarizes key findings from VaR, CVaR, cohorts, SIP continuity, and HHI results |
+
+---
+
+## 🧮 Key Formulas Used
+
+### Historical VaR 95%
+
+```text
+VaR 95% = 5th percentile of daily return distribution
+```
+
+### Conditional VaR 95%
+
+```text
+CVaR 95% = Mean of returns below VaR threshold
+```
+
+### Rolling 90-Day Sharpe Ratio
+
+```text
+Rolling Sharpe = returns.rolling(90).mean() / returns.rolling(90).std() × √252
+```
+
+### SIP Gap Analysis
+
+```text
+Average Gap = Average difference between investor SIP transaction dates
+```
+
+At-risk condition:
+
+```text
+Average Gap > 35 days
+```
+
+### Sector HHI Concentration
+
+```text
+HHI = Σ(weight_i²)
+```
+
+Higher HHI indicates a more concentrated portfolio, while lower HHI indicates better diversification.
+
+---
+
+## 🤖 Fund Recommender
+
+Created:
+
+```text
+recommender.py
+```
+
+The recommender takes investor risk appetite as input:
+
+```text
+Low / Moderate / High
+```
+
+It recommends the top 3 funds by Sharpe ratio within the matching risk grade.
+
+---
+
+## ▶️ Run Fund Recommender
+
+Run from project root:
+
+```bash
+python recommender.py --risk Low
+python recommender.py --risk Moderate
+python recommender.py --risk High
+```
+
+---
+
+## 🔝 Recommender Output Summary
+
+### Low Risk Recommendations
+
+| Rank | Fund Name                                |
+| ---- | ---------------------------------------- |
+| 1    | ICICI Pru Liquid Fund - Regular - Growth |
+| 2    | Kotak Liquid Fund - Regular - Growth     |
+| 3    | ABSL Liquid Fund - Regular - Growth      |
+
+### Moderate Risk Recommendations
+
+| Rank | Fund Name                                      |
+| ---- | ---------------------------------------------- |
+| 1    | Mirae Asset Large Cap Fund - Regular - Growth  |
+| 2    | SBI Bluechip Fund - Regular Plan - Growth      |
+| 3    | Nippon India Large Cap Fund - Regular - Growth |
+
+### High Risk Recommendations
+
+| Rank | Fund Name                                |
+| ---- | ---------------------------------------- |
+| 1    | ICICI Pru Midcap Fund - Regular - Growth |
+| 2    | DSP Midcap Fund - Regular - Growth       |
+| 3    | Axis Midcap Fund - Regular - Growth      |
+
+---
+
+## 📈 Task 5 Charts Generated
+
+| Chart File                 | Description                                             |
+| -------------------------- | ------------------------------------------------------- |
+| `rolling_sharpe_chart.png` | Shows Rolling 90-day Sharpe Ratio trend for 5 key funds |
+
+---
+
+## 📦 Task 5 Deliverables
+
+| Deliverable                 | Location                                                  |
+| --------------------------- | --------------------------------------------------------- |
+| Advanced Analytics Notebook | `notebooks/Advanced_Analytics.ipynb`                      |
+| VaR and CVaR Report         | `reports/advanced_analytics/var_cvar_report.csv`          |
+| Fund Recommender Script     | `recommender.py`                                          |
+| Rolling Sharpe Chart        | `reports/charts/rolling_sharpe_chart.png`                 |
+| Investor Cohort Report      | `reports/advanced_analytics/investor_cohort_analysis.csv` |
+| SIP Continuity Report       | `reports/advanced_analytics/sip_continuity_report.csv`    |
+| Sector HHI Report           | `reports/advanced_analytics/sector_hhi_concentration.csv` |
+| Advanced Insights Markdown  | `reports/advanced_analytics/advanced_insights.md`         |
+
+---
+
+## 📌 Key Advanced Analytics Findings
+
+* Historical VaR and CVaR helped identify funds with higher downside risk.
+* CVaR provided a stronger tail-risk view by measuring average losses during extreme negative return periods.
+* Rolling 90-day Sharpe Ratio showed how fund risk-adjusted performance changed over time.
+* Investor cohort analysis identified which investor groups contributed the highest total investment.
+* SIP continuity analysis helped flag investors whose SIP behavior showed possible discontinuity risk.
+* Risk-based recommender successfully generated top 3 fund recommendations for Low, Moderate, and High risk appetite.
+* Sector HHI concentration analysis measured diversification versus concentration across equity fund portfolios.
+* The advanced insights file summarized the most important business findings from the analysis.
+
+---
+
+## ⚠️ Data Note
+
+The dataset appears to be academic/simulated and may contain generated NAV, investor transaction, and portfolio allocation values. All calculations were performed consistently for analytics, ranking, risk comparison, and recommendation purposes.
+
+---
+
+## ▶️ Run Task 5 Notebook
+
+Open Jupyter Notebook:
+
+```bash
+python -m notebook
+```
+
+Then open:
+
+```text
+notebooks/Advanced_Analytics.ipynb
+```
+
+Run all notebook cells:
+
+```text
+Kernel → Restart Kernel and Run All Cells
+```
+
+---
+
+## 📦 Task 5 Deliverables Summary
+
+| Required File                  | Status    |
+| ------------------------------ | --------- |
+| `Advanced_Analytics.ipynb`     | Completed |
+| `var_cvar_report.csv`          | Completed |
+| `recommender.py`               | Completed |
+| `rolling_sharpe_chart.png`     | Completed |
+| `investor_cohort_analysis.csv` | Completed |
+| `sip_continuity_report.csv`    | Completed |
+| `sector_hhi_concentration.csv` | Completed |
+| `advanced_insights.md`         | Completed |
+
+---
+
+## 🧾 Task 5 Git Commit
+
+```bash
+git add notebooks/Advanced_Analytics.ipynb
+git add recommender.py
+git add reports/advanced_analytics/
+git add reports/charts/rolling_sharpe_chart.png
+git add README.md
+git commit -m "Day 5: Advanced analytics and risk metrics"
+git push
+```
+
+---
+
+## ✅ Task 5 Status
+
+Task 5 Completed Successfully.
 
 ---
